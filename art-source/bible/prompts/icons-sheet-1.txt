@@ -1,0 +1,10 @@
+A sprite sheet of 16 small game UI icons for a cozy post-office collection game, arranged in a strict 4 by 4 grid,
+each icon centered in its own equal square cell with generous empty white space between cells, nothing crossing cell borders.
+Row 1: a single round gold coin with a simple embossed star, a cluster of three four-pointed sparkle stars (star shards) in pale yellow and cream, a faceted teal-blue gem, a plump rounded red heart.
+Row 2: a red vintage street mailbox with a rounded top and a slot, a small group of two cottages with red and teal roofs, an open notebook album with a teal cover and a cream page, a little shop front with a red and cream striped awning.
+Row 3: a simple person bust silhouette in teal (head and shoulders), a cream speaker with two sound wave arcs, the same cream speaker with a small red X instead of waves, a teal globe with simple cream meridian lines.
+Row 4: a brass padlock, a red gift box with a gold ribbon bow, a kraft brown cardboard parcel box with tape, a cream postage stamp with scalloped edges and a red heart in the middle.
+Strict style: very bold chunky simplified shapes designed to read at 20 pixels, thick uniform dark brown outline (#3a2c1f) around every icon,
+flat cel shading with only 2 tones per color, one small hard highlight, warm light from the upper left, slight 3/4 view.
+Palette limited to: gold #e8b33f, teal #23a091, warm red #c8402f, kraft #c89a5b, cream #fffaf0, outline #3a2c1f.
+Flat solid pure white background. No shadows, no glow, no text, no letters, no numbers, no grid lines, no labels, no fine detail, no texture.

@@ -1,0 +1,17 @@
+# Series hand-off sheet — Lost Letter Office
+# M3.2 (TAO-155). Unlock: town Lv8. Rarity split 4 common / 2 rare / 1 epic / 1 secret.
+# Weight w in oz, range [min,max]. snd in {rustle, thud, slosh, clack, clank, jingle, chime, squeak}.
+# Notes ≤60 chars. Ids frozen at hand-off.
+#
+# series_id	series_name_en	series_name_zh	series_name_es	postmark_en	postmark_zh	postmark_es	shop_en	shop_zh	shop_es	accent
+@series	lost-letter-office	Lost Letter Office	遗失信件办公室	Oficina de Cartas Extraviadas	DEAD LETTER	死信	CARTAS MUERTAS	Dead Letter Depot	死信仓库	Depósito de Cartas Muertas	#2456c4
+#
+# item_id	name_en	name_zh	name_es	note_en	note_zh	note_es	rarity	snd	w_min	w_max
+tied-parcel	Tied Parcel	麻绳包裹	Paquete Atado	No tag, no name. It asked for Parcelwood, so here it stays.	没有标签也没有名字，它要去包裹林，于是留了下来。	Sin etiqueta ni nombre. Pedía Parcelwood, y aquí se queda.	common	rustle	2	4
+sealed-letter	Sealed Letter	火漆密信	Carta Sellada	The glue held for forty years. Whatever's inside is patient.	浆糊粘了四十年，里面装着的东西很有耐心。	El pegamento aguantó cuarenta años. Lo de dentro espera.	common	rustle	0.5	1.5
+wax-stamp	Wax Stamp	火漆印章	Sello de Cera	Every letter in the pile wears the same pressed crest.	那堆信的每一封，都盖着同一个压纹徽章。	Cada carta del montón lleva el mismo escudo presionado.	common	clack	1.5	3
+postal-key	Postal Key	邮局钥匙	Llave Postal	Opens drawer 13. Nobody remembers what drawer 13 is.	能打开13号抽屉，没人记得13号抽屉放了什么。	Abre el cajón 13. Nadie recuerda qué es el cajón 13.	common	jingle	2	3.5
+return-to-sender-tag	Return-to-Sender Tag	退回寄件牌	Devolver al Remitente	It circled the country six times. The tag gave up counting.	它在全国转了六圈，标签都懒得再数了。	Dio seis vueltas al país. La etiqueta dejó de contar.	rare	rustle	0.5	1
+mail-pouch	Mail Pouch	邮差包	Bolso Postal	Soft from a thousand sorting rooms. Still smells of trains.	被上千分拣间磨得柔软，至今还有火车的味道。	Suavizado por mil salas de clasificación. Huele a trenes.	rare	rustle	8	11
+pocket-watch	Pocket Watch	怀表	Reloj de Bolsillo	Stopped at 4:12, the hour the sorting train never arrived.	停在4:12，那班分拣列车始终没到的时刻。	Se paró a las 4:12, la hora en que el tren nunca llegó.	epic	clank	6	8
+paper-crane	Paper Crane	纸鹤	Grulla de Papel	No address was written on it. It found Parcelwood anyway.	身上从没写过地址，它还是自己找到了包裹林。	Nunca le escribieron dirección. Igual encontró Parcelwood.	secret	rustle	0.2	0.6

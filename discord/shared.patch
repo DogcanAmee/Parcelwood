@@ -1,0 +1,198 @@
+--- a/package.json
++++ b/package.json
+@@ -8,7 +8,10 @@
+     "build": "tsc && vite build",
+     "preview": "vite preview",
+     "typecheck": "tsc",
+-    "test": "vitest run"
++    "test": "vitest run",
++    "dev:discord": "vite --config discord/vite.config.ts",
++    "typecheck:discord": "tsc -p discord/tsconfig.json",
++    "build:discord": "tsc -p discord/tsconfig.json && vite build --config discord/vite.config.ts"
+   },
+   "devDependencies": {
+     "jsdom": "^26.1.0",
+@@ -17,6 +20,7 @@
+     "vitest": "^3.2.7"
+   },
+   "dependencies": {
++    "@discord/embedded-app-sdk": "^2.5.0",
+     "@supabase/supabase-js": "^2.118.0"
+   }
+ }
+--- a/src/ui/app.ts
++++ b/src/ui/app.ts
+@@ -229,15 +229,51 @@
+     { id: 'noads', p: '$2.99' }, { id: 'gems60', p: '$0.99' }, { id: 'gems330', p: '$4.99' }, { id: 'outfit', p: '$1.99' },
+     { id: 'parcel10', p: () => '💎 ' + t('gemsTbd') },
+   ];
++  // Discord build: real purchases through backend.store (src/discord/store.ts). Other builds: the offers above.
++  const store = backend && backend.store ? backend.store : null;
++  let storeOffers = null, storeBusy = false;
++  function loadOffers() {
++    store.offers(document.documentElement.lang || 'en').then(o => { storeOffers = o; if (view === 'shop') render(); }, () => {});
++  }
++  function storeRows(O) {
++    if (!store.canBuy()) return '<p class="small" style="margin:0">' + esc(t('buyOnDesktop')) + '</p>';
++    if (!storeOffers) { loadOffers(); return ''; }
++    return storeOffers.map(o => '<div class="offer"><div class="ot"><div class="t">' + esc(O[o.id][0]) + ' <span class="muted small">' + esc(o.price) + '</span></div><div class="d">' + esc(O[o.id][1]) + '</div></div>' +
++      (o.owned ? '<button disabled>' + esc(t('owned')) + '</button>' : '<button data-buy="' + esc(o.id) + '"' + (storeBusy ? ' disabled' : '') + '>' + esc(o.price) + '</button>') + '</div>').join('');
++  }
++  async function buyFlow(id) {
++    if (storeBusy) return;
++    storeBusy = true; render();
++    let r;
++    try { r = await store.buy(id); } catch (e) { r = 'not-completed'; }
++    storeBusy = false; storeOffers = null; render();
++    if (r === 'pending') toast(t('buyPending'));
++    else if (r === 'not-completed') toast(t('buyFailed'));
++    else if (r === 'busy') toast(t('buyBusy'));
++    else if (r === 'mobile') toast(t('buyOnDesktop'));
++    else if (r === 'unavailable') toast(t('buyUnavailable'));
++  }
++  // Adds a delivered purchase. Throws while the game is not ready (no save yet, the player is choosing between
++  // two saves, or the device save is not yet synced with the signed-in account), so the order waits and is
++  // delivered by the next claim. The device save may still belong to another Discord account on a shared computer.
++  function grant(g) {
++    const u = auth.user();
++    if (!state || syncing || !u || lastUid !== u.id || meta().owner !== u.id) throw new Error('not ready');
++    if (g.gems > 0) state.gems += g.gems;
++    save(); sfx('coin'); render();
++    toast(g.product === 'outfit' ? t('buyOutfit') : t('buyGems', { n: g.gems }));
++  }
++  function claimPurchases() { if (store && accountsOn()) enqueue(() => store.claim()).catch(() => {}); }
+   function shopView() {
+     const O = t('offers');
+     let rows = '';
+-    OFFERS.forEach(o => { rows += '<div class="offer"><div class="ot"><div class="t">' + esc(O[o.id][0]) + ' <span class="muted small">' + esc(typeof o.p === 'function' ? o.p() : o.p) + '</span></div><div class="d">' + esc(O[o.id][1]) + '</div></div><button data-offer="' + o.id + '">' + esc(t('comingSoon')) + '</button></div>'; });
++    if (store) rows = storeRows(O);
++    else OFFERS.forEach(o => { rows += '<div class="offer"><div class="ot"><div class="t">' + esc(O[o.id][0]) + ' <span class="muted small">' + esc(typeof o.p === 'function' ? o.p() : o.p) + '</span></div><div class="d">' + esc(O[o.id][1]) + '</div></div><button data-offer="' + o.id + '">' + esc(t('comingSoon')) + '</button></div>'; });
+     const taps = OFFERS.filter(o => state.shopTaps[o.id]).map(o => O[o.id][0] + ': ' + state.shopTaps[o.id]).join(' · ') || t('noneYet');
+     const st = state.stats;
+     return header() +
+       '<section class="panel"><div class="panel-head"><h2>' + esc(t('shopTitle')) + '</h2><button class="link-btn small" id="open-odds">' + esc(t('parcelOdds')) + '</button></div>' +
+-      (underAge ? '<p class="small muted" style="margin:0">' + esc(t('ageLocalNote')) + '</p></section>' : '<p class="small muted" style="margin:0">' + esc(t('shopNote')) + '</p><div>' + rows + '</div></section>') +
++      (underAge ? '<p class="small muted" style="margin:0">' + esc(t('ageLocalNote')) + '</p></section>' : '<p class="small muted" style="margin:0">' + esc(t(store ? 'shopNoteDiscord' : 'shopNote')) + '</p><div>' + rows + '</div></section>') +
+       (devTools ? '<section class="panel dev"><h3>' + esc(t('devTitle')) + '</h3><p class="small muted" style="margin:0">' + esc(t('devNote')) + '</p>' +
+       '<div class="row"><button class="btn ghost" id="dev-parcels">' + esc(t('devParcels')) + '</button><button class="btn ghost" id="dev-mystery">' + esc(t('devMystery')) + '</button></div>' +
+       '<div class="row"><button class="btn ghost" id="dev-unlock">' + esc(t('devUnlock')) + '</button><button class="btn ghost" id="dev-age">' + esc(t('devAge')) + '</button></div>' +
+@@ -588,10 +624,11 @@
+     const u = auth.user(); if (pc.ep !== epoch || !u || u.id !== pc.uid) return; // account changed meanwhile
+     useState(which === 'local' ? keepOne(state, pc.state, pc.same) : keepOne(pc.state, state, pc.same), { owner: u.id, ownerGuest: u.anonymous, version: pc.version, dirty: true });
+     pushNow(); toast(t('accSynced')); render();
++    claimPurchases(); // purchases that waited while the player chose
+   }
+   function onAuth(u) {
+     if (!u) return;
+-    if (u.id !== lastUid) { epoch++; lastUid = u.id; syncFor(u); }
++    if (u.id !== lastUid) { epoch++; lastUid = u.id; syncFor(u); claimPurchases(); } // claim runs after the sync in the queue
+     else schedulePush();
+     if (view === 'account') render();
+   }
+@@ -629,7 +666,11 @@
+     const msg = accMsg ? '<p class="small" role="status" style="margin:0' + (accMsg.bad ? ';color:var(--stamp)' : '') + '">' + esc(t(accMsg.k)) + '</p>' : '';
+     const mock = auth.mode === 'mock' ? '<p class="small muted" style="margin:0">' + esc(t('accMock')) + '</p>' : '';
+     let body;
+-    if (!u || u.anonymous) {
++    if (auth.provider === 'discord') {
++      // Discord build: the Discord account is the login. No guest, email, Apple, Google or sign-out.
++      body = '<h2>' + esc(t('accDiscordTitle')) + '</h2>' + (auth.displayName() ? '<p style="margin:0">' + esc(t('accDiscordAs', { x: auth.displayName() })) + '</p>' : '') +
++        '<p class="small muted" style="margin:0">' + esc(t('accDiscordNote')) + '</p>';
++    } else if (!u || u.anonymous) {
+       body = '<h2>' + esc(t('accGuestTitle')) + '</h2><p style="margin:0">' + esc(t('accGuestBody')) + '</p>' +
+         '<button class="btn sso-apple" id="acc-apple"' + dis + '>' + esc(t('accApple')) + '</button>' +
+         '<button class="btn ghost" id="acc-google"' + dis + '>' + esc(t('accGoogle')) + '</button>' +
+@@ -681,6 +722,7 @@
+     auth.onChange(onAuth);
+     // init() may already have reported the account through onAuth; onAuth ignores a repeat, so exactly one sync runs.
+     try { const u = await auth.init(); if (u) onAuth(u); } catch (e) { /* offline: play continues on the device save */ }
++    if (store) { store.onGrant(grant); claimPurchases(); } // runs after the first save sync in the queue
+     if (view === 'account') render();
+   }
+ 
+@@ -734,6 +776,7 @@
+     if (b.dataset.req) { sparesModal(+b.dataset.req); return; }
+     if (b.dataset.ex) { const r = exchangeItem(state, b.dataset.ex); save(); if (r) { sfx('rare'); toast(t('traded', { x: iName(ITEMS[b.dataset.ex]) })); render(); if (r.complete) celebrate(r.complete); } return; }
+     if (b.id === 'recycle') { const g = recycleExtras(state, albumTab); save(); if (g) { sfx('coin'); toast(t('shardsGot', { n: g })); } render(); return; }
++    if (b.dataset.buy && store) { buyFlow(b.dataset.buy); return; }
+     if (b.dataset.offer) { state.shopTaps[b.dataset.offer] = (state.shopTaps[b.dataset.offer] || 0) + 1; save(); toast(t('tapNoted')); render(); return; }
+     if (b.id === 'dev-parcels') { for (let i = 0; i < 10; i++) state.parcels.push(makeParcel(state, 'normal', rng)); save(); toast(t('added10')); render(); return; }
+     if (b.id === 'dev-unlock') {
+--- a/src/i18n/strings.ts
++++ b/src/i18n/strings.ts
+@@ -190,3 +190,6 @@
+ // Age screen and account page text lives in its own file; merged here so t() finds it.
+ import { ACCOUNT_UI } from './account';
+ (['en', 'zh', 'es'] as const).forEach(l => Object.assign(UI[l], ACCOUNT_UI[l]));
++// Discord build shop and account text.
++import { DISCORD_UI } from '../discord/strings';
++(['en', 'zh', 'es'] as const).forEach(l => Object.assign(UI[l], DISCORD_UI[l]));
+--- /dev/null
++++ b/tests/discord/shop.discord.test.ts
+@@ -0,0 +1,66 @@
++// @vitest-environment jsdom
++// Needs the shared UI change (discord/SHARED-CHANGES.md): Discord shop and account page in the game UI.
++import { beforeAll, describe, expect, it, vi } from 'vitest';
++import { startApp } from '../../src/ui/app';
++import { createDiscordBackend } from '../../src/discord/backend';
++import { fakePlatform, ROOTS } from '../helpers';
++import { cfg } from './helpers';
++
++const $ = (s: string) => document.querySelector(s) as HTMLElement | null;
++
++async function boot(platform: 'desktop' | 'mobile') {
++  const { platform: p, box } = fakePlatform('ok');
++  const backend = createDiscordBackend(null, cfg, p.kv, 'http://localhost', { platform });
++  document.body.innerHTML = ROOTS;
++  window.scrollTo = () => {};
++  await backend.store.start();
++  const stop = startApp(p, false, backend);
++  await vi.waitFor(() => expect(backend.auth.user()).not.toBeNull());
++  if ($('#intro-ok')) $('#intro-ok')!.click();
++  return { box, backend, stop };
++}
++
++describe('Discord shop in the game', () => {
++  let ctx: Awaited<ReturnType<typeof boot>>;
++  beforeAll(async () => { ctx = await boot('desktop'); });
++
++  it('lists the three Discord products with prices and no "remove ads"', async () => {
++    (document.querySelector('[data-view="shop"]') as HTMLElement).click();
++    await vi.waitFor(() => expect(document.querySelectorAll('[data-buy]').length).toBe(3));
++    expect($('[data-buy="gems60"]')!.textContent).toBe('$0.99');
++    expect(document.body.innerHTML).not.toContain('data-buy="noads"');
++    expect($('#open-odds')).not.toBeNull();
++  });
++
++  it('adds doubled gems for the first pack and saves', async () => {
++    const before = ctx.box.saved!.gems;
++    $('[data-buy="gems60"]')!.click();
++    await vi.waitFor(() => expect(ctx.box.saved!.gems).toBe(before + 120));
++  });
++
++  it('shows the uniform as owned after buying it', async () => {
++    await vi.waitFor(() => expect($('[data-buy="outfit"]')).not.toBeNull());
++    $('[data-buy="outfit"]')!.click();
++    await vi.waitFor(() => expect($('[data-buy="outfit"]')).toBeNull());
++    expect(document.body.textContent).toContain('Owned');
++  });
++
++  it('shows the Discord account, with no email, Apple, Google or sign-out', async () => {
++    ($('#account') as HTMLElement).click();
++    expect(document.body.textContent).toContain('Signed in with Discord');
++    expect(document.body.textContent).toContain('Local Player');
++    expect($('#acc-email')).toBeNull();
++    expect($('#acc-apple')).toBeNull();
++    expect($('#acc-signout')).toBeNull();
++    expect($('#acc-delete')).not.toBeNull();
++    ctx.stop();
++  });
++
++  it('explains on phones that purchases need a computer, with no buy buttons', async () => {
++    const m = await boot('mobile');
++    (document.querySelector('[data-view="shop"]') as HTMLElement).click();
++    expect(document.querySelectorAll('[data-buy]').length).toBe(0);
++    expect(document.body.textContent).toContain('Discord phone app');
++    m.stop();
++  });
++});

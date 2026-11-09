@@ -1,0 +1,35 @@
+
+> parcelwood@0.1.0 build:discord
+> tsc -p discord/tsconfig.json && vite build --config discord/vite.config.ts
+
+vite v6.4.5 building for production...
+transforming...
+✓ 190 modules transformed.
+rendering chunks...
+computing gzip size...
+discord/dist/index.html                                              0.79 kB │ gzip:   0.45 kB
+discord/dist/terms/index.html                                        4.52 kB │ gzip:   2.17 kB
+discord/dist/privacy/index.html                                      5.30 kB │ gzip:   2.33 kB
+discord/dist/assets/lilita-one-latin-400-normal-87r-Z-Re.woff2      10.67 kB
+discord/dist/assets/figtree-latin-700-normal-th6qEP7c.woff2         11.38 kB
+discord/dist/assets/figtree-latin-400-normal-g7Dtegnw.woff2         11.38 kB
+discord/dist/assets/figtree-latin-600-normal-Cv_xCTDl.woff2         11.54 kB
+discord/dist/assets/lilita-one-latin-400-normal-DXkechA3.woff       13.52 kB
+discord/dist/assets/courier-prime-latin-400-normal-BAlbUm6l.woff    14.38 kB
+discord/dist/assets/courier-prime-latin-700-normal-CVvp4Sof.woff    14.68 kB
+discord/dist/assets/figtree-latin-400-normal-BD4aNku5.woff          15.04 kB
+discord/dist/assets/figtree-latin-700-normal-BCCt2T1q.woff          15.16 kB
+discord/dist/assets/figtree-latin-600-normal-BM_oTo4n.woff          15.21 kB
+discord/dist/assets/courier-prime-latin-400-normal-BbyBr73r.woff2   18.64 kB
+discord/dist/assets/courier-prime-latin-700-normal-D1YCjmaD.woff2   19.35 kB
+discord/dist/assets/week-BkZ5LjIP.css                               17.63 kB │ gzip:   4.16 kB
+discord/dist/assets/index-xl9Y14gl.css                             124.32 kB │ gzip:  26.57 kB
+discord/dist/assets/week-Bxj_U8ae.js                                14.93 kB │ gzip:   5.38 kB
+discord/dist/assets/rushHour-DQdUG4_P.js                            26.41 kB │ gzip:  10.58 kB
+discord/dist/assets/index-DvyfYGvK.js                              755.78 kB │ gzip: 244.87 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 616ms

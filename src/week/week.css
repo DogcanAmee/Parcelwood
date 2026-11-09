@@ -1,0 +1,209 @@
+/* Station Week overlay: the station's back room. Same materials as the front counter (kraft, wood, brass, inked
+   edges, grain) from the main stylesheet's tokens, a little dimmer: this is where the wholesale crates wait. */
+body.week-active { overflow: hidden; }
+body.week-active .nav, body.week-active .app { visibility: hidden; }
+.wk {
+  position: fixed; inset: 0; z-index: 60; overflow-y: auto; overscroll-behavior: contain; color: var(--ink);
+  font-family: var(--f-body); -webkit-tap-highlight-color: transparent;
+  background:
+    var(--grain),
+    radial-gradient(70% 40% at 50% 0%, rgba(255,226,150,.45), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(58,44,31,.07) 0 3px, transparent 3px 120px),
+    linear-gradient(180deg, var(--surface-2), var(--bg) 40%);
+}
+.wk-scene { max-width: 1040px; margin: 0 auto; padding: 12px 14px 96px; }
+.wk h1, .wk h2 { font-family: var(--f-display); font-weight: 400; letter-spacing: .01em; margin: 0; }
+
+/* header: hanging wooden sign under a warm bulb */
+.wk-top { position: relative; display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.wk-brand { display: grid; gap: 2px; }
+.wk-brand h1 { font-size: 28px; line-height: 1.1; color: #fff3d2; -webkit-text-stroke: 6px var(--edge); paint-order: stroke fill; text-shadow: 0 4px 0 var(--edge); }
+.wk-kicker { justify-self: start; font-family: var(--f-mono); font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #fff3d2; background: linear-gradient(180deg, var(--wood), var(--wood-dark)); border: 2px solid var(--edge); border-radius: 6px; padding: 1px 8px; box-shadow: 0 2px 0 var(--edge); }
+.wk-icon { flex: none; width: 40px; height: 40px; border-radius: 999px; border: 2px solid var(--edge); background: var(--surface); color: var(--ink); box-shadow: 0 3px 0 var(--edge); font-size: 18px; cursor: pointer; transition: transform .12s var(--ease-out), box-shadow .12s var(--ease-out); }
+.wk-icon:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--edge); }
+.wk-bulb { margin-left: auto; width: 16px; height: 16px; border-radius: 50%; background: #ffe9a3; border: 2px solid var(--edge); box-shadow: 0 0 16px 7px rgba(255,214,120,.55); position: relative; animation: wkGlow 2.8s ease-in-out infinite alternate; }
+.wk-bulb::before { content: ""; position: absolute; left: 50%; bottom: 100%; width: 2px; height: 14px; background: var(--edge); transform: translateX(-50%); }
+@keyframes wkGlow { to { box-shadow: 0 0 24px 11px rgba(255,214,120,.8); } }
+
+.wk-body { display: grid; gap: 14px; }
+.wk-intro { max-width: 900px; }
+.wk-over { max-width: 600px; margin: 0 auto; }
+.wk-intro-cols { display: grid; gap: 14px; }
+@media (min-width: 820px) { .wk-intro-cols { grid-template-columns: 1.15fr 1fr; align-items: start; } }
+.wk-lead { margin: 0; font-size: 16px; }
+.wk-small { margin: 0; font-size: 13px; color: var(--ink-soft); }
+.wk-small.bad, .wk-guess.bad { color: var(--stamp); }
+.wk-rules { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
+.wk-rules li::marker { font-family: var(--f-display); color: var(--stamp); }
+
+/* paper sheets with an inked edge and a hard drop, like the counter's panels */
+.wk-panel { background: var(--grain), var(--surface); border: 2px solid var(--edge); border-radius: 18px; padding: 14px; box-shadow: 0 5px 0 var(--edge), 0 18px 30px -18px rgba(58,44,31,.55); display: grid; gap: 10px; align-content: start; }
+.wk-panel h2 { font-size: 20px; }
+.wk-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.wk-count { font-family: var(--f-display); font-size: 15px; min-width: 30px; text-align: center; padding: 1px 8px; border-radius: 999px; background: var(--surface-2); border: 2px solid var(--edge); }
+
+/* status: brass coin, inked chips */
+.wk-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.wk-stat { background: var(--surface); border: 2px solid var(--edge); border-radius: 14px; box-shadow: 0 3px 0 var(--edge); padding: 6px 8px; display: grid; text-align: center; align-content: center; }
+.wk-stat b { font-family: var(--f-display); font-weight: 400; font-size: 24px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.wk-stat small { font-size: 11px; font-weight: 700; color: var(--ink-soft); }
+.wk-stat.coin { background: linear-gradient(180deg, #ffe08a, var(--brass)); color: #3a2c1f; }
+.wk-stat.coin small { color: #6b4a1e; }
+.wk-stat.ap b { color: var(--accent); }
+.wk-hearts { display: flex; justify-content: center; gap: 5px; padding: 6px 0; }
+.wk-hearts i { width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--stamp); background: var(--surface); }
+.wk-hearts i.on { background: var(--stamp); box-shadow: inset 0 -3px 0 rgba(0,0,0,.2); }
+.wk-event { background: repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 10px, transparent 10px 20px), var(--accent); color: var(--accent-ink); border: 2px solid var(--edge); box-shadow: 0 3px 0 var(--edge); border-radius: 14px; padding: 8px 12px; font-size: 14px; }
+.wk-event b { font-family: var(--f-display); font-weight: 400; font-size: 16px; margin-right: 4px; }
+.wk-owned { display: flex; flex-wrap: wrap; gap: 6px; }
+.wk-chip { font-size: 12px; font-weight: 700; background: var(--surface); border: 2px dashed var(--stamp); color: var(--stamp); border-radius: 6px; padding: 2px 8px; transform: rotate(-1.5deg); }
+.wk-chip:nth-child(2n) { transform: rotate(1.2deg); }
+
+/* shop tags: paper luggage labels in each shop's colour */
+.wk-shops { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.wk-shop { position: relative; border: 2px solid var(--edge); border-left: 10px solid var(--c); background: var(--grain), var(--surface); border-radius: 10px; box-shadow: 0 3px 0 var(--edge); padding: 6px 10px; display: grid; font-size: 13px; }
+.wk-shop b { font-family: var(--f-display); font-weight: 400; font-size: 15px; }
+.wk-shop small { font-family: var(--f-mono); font-weight: 700; letter-spacing: .08em; color: var(--ink-soft); }
+.wk-shop em { position: absolute; right: 8px; top: 6px; font-style: normal; font-size: 11px; font-weight: 700; padding: 0 6px; border-radius: 999px; border: 2px solid currentColor; transform: rotate(4deg); }
+.wk-shop em.hot { color: var(--ok); }
+.wk-shop em.cold { color: var(--ink-soft); }
+
+.wk-cols { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.wk-cols > div { display: grid; gap: 14px; align-content: start; }
+@media (min-width: 760px) { .wk-cols { grid-template-columns: 1.15fr 1fr; } .wk-detail { position: sticky; top: 12px; } }
+
+/* the back room floor: crates stacked on wooden pallets */
+.wk-desk { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); column-gap: 14px; row-gap: 26px; padding: 14px 12px 22px; border: 2px solid var(--edge); border-radius: 12px;
+  background: repeating-linear-gradient(90deg, rgba(58,44,31,.06) 0 2px, transparent 2px 46px), linear-gradient(180deg, rgba(58,44,31,.22), rgba(58,44,31,.05) 40%), var(--surface-2); box-shadow: inset 0 8px 14px -6px rgba(58,44,31,.45); }
+.wk-parcel { position: relative; aspect-ratio: 1 / .92; padding: 0; border: 0; background: transparent; cursor: pointer; font: inherit; color: inherit; border-radius: 8px; }
+.wk-parcel::after { content: ""; position: absolute; left: -8px; right: -8px; bottom: -13px; height: 11px; background: repeating-linear-gradient(90deg, transparent 0 18px, rgba(0,0,0,.25) 18px 20px), linear-gradient(180deg, var(--wood), var(--wood-dark)); border-top: 2px solid rgba(255,255,255,.25); border-bottom: 2px solid var(--edge); }
+.wk-parcel .wk-crate { position: absolute; inset: 0; z-index: 1; filter: drop-shadow(0 5px 0 rgba(58,44,31,.3)); transition: transform .28s var(--spring); }
+.wk-parcel.fresh .wk-crate { animation: wkBob 2.8s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -.4s); }
+@keyframes wkBob { 50% { transform: translateY(-3px) rotate(.8deg); } }
+@media (hover: hover) { .wk-parcel:hover .wk-crate { transform: translateY(-8px) rotate(-2deg); animation: none; } }
+.wk-parcel:active .wk-crate { transform: translateY(2px) scale(.95, 1.04); transition-duration: .08s; }
+.wk-parcel.sel .wk-crate { transform: translateY(-10px); animation: none; filter: drop-shadow(0 0 0 var(--edge)) drop-shadow(0 10px 0 rgba(58,44,31,.35)); }
+.wk-parcel.sel::before { content: "▼"; position: absolute; left: 50%; top: -22px; transform: translateX(-50%); z-index: 2; color: var(--stamp); font-size: 14px; text-shadow: 0 2px 0 var(--edge); }
+
+/* a plain corrugated carton; checks get stamped on it */
+.wk-crate { display: block; position: relative; width: 100%; height: 100%; border: 2px solid var(--edge); border-radius: 6px; overflow: hidden; container-type: inline-size;
+  background: repeating-linear-gradient(90deg, rgba(0,0,0,.045) 0 2px, transparent 2px 6px), linear-gradient(180deg, var(--kraft) 0%, var(--kraft-dark) 100%);
+  box-shadow: inset 0 -8px 0 rgba(0,0,0,.12), inset 0 3px 0 rgba(255,255,255,.22); }
+.wk-crate i, .wk-crate b, .wk-crate span { position: absolute; display: block; font-style: normal; }
+.wk-flap { left: 0; right: 0; top: 0; height: 24%; border-bottom: 2px solid rgba(58,44,31,.3); background: linear-gradient(180deg, rgba(255,255,255,.12), transparent); }
+.wk-tape { left: 50%; top: 0; height: 38%; width: 22%; transform: translateX(-50%); background: var(--tape); opacity: .92; box-shadow: 0 1px 0 rgba(0,0,0,.12); }
+.wk-no { left: 8%; bottom: 7%; font-family: var(--f-display); font-weight: 400; font-size: 26cqi; line-height: 1; color: rgba(44,34,25,.62); letter-spacing: .04em; }
+.wk-arrows { right: 8%; bottom: 9%; font-size: 11cqi; font-weight: 700; color: rgba(44,34,25,.5); letter-spacing: -.1em; }
+.wk-mk { font-family: var(--f-mono); font-weight: 700; line-height: 1.1; white-space: nowrap; max-width: 92%; overflow: hidden; text-overflow: ellipsis; font-size: 9.5cqi; }
+.wk-mk.pm { left: 5%; top: 30%; padding: 1px 4px; border: 2px solid rgba(29,39,51,.65); border-radius: 4px; color: rgba(29,39,51,.8); transform: rotate(-8deg); background: rgba(255,255,255,.18); }
+.wk-mk.pm.smudge { filter: blur(.6px); border-style: dashed; }
+.wk-mk.wt { right: 5%; top: 52%; padding: 1px 5px; background: #fbfaf6; color: #3d3a33; border: 1.5px solid var(--edge); border-radius: 3px 8px 8px 3px; transform: rotate(5deg); }
+.wk-mk.snd { left: 5%; top: 52%; padding: 1px 5px; background: var(--surface); color: var(--ink); border: 1.5px solid var(--edge); border-radius: 8px; }
+.wk-mk.xr { left: 0; right: 0; top: 24%; max-width: none; text-align: center; padding: 1px 4px; background: var(--c); color: #fff; text-shadow: 0 1px 0 rgba(0,0,0,.35); border-block: 1.5px solid var(--edge); }
+.wk-mk.ins { right: 4%; top: 4%; padding: 0 4px; border: 2px solid var(--stamp); color: var(--stamp); background: rgba(255,255,255,.4); transform: rotate(8deg); letter-spacing: .04em; z-index: 1; }
+.wk-crate.big .wk-mk { font-size: 7cqi; }
+.wk-crate.big .wk-no { font-size: 18cqi; }
+.wk-crate.big .wk-arrows { font-size: 7cqi; }
+.wk-stage { padding: 12px 0 18px; border-radius: 12px; background: radial-gradient(60% 70% at 50% 40%, rgba(255,226,150,.5), transparent 70%), var(--surface-2); border: 2px dashed var(--edge-soft); }
+.wk-stage .wk-crate { width: min(240px, 66%); height: auto; aspect-ratio: 1.25 / 1; margin: 0 auto; border-radius: 10px; box-shadow: inset 0 -10px 0 rgba(0,0,0,.12), inset 0 3px 0 rgba(255,255,255,.22), 0 6px 0 var(--edge); }
+
+.wk-orders { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 14px; }
+.wk-orders li { padding: 6px 10px; border-radius: 10px; background: var(--surface-2); border: 2px dashed var(--edge-soft); }
+
+/* tools: same chunky inked tiles as the inspect sheet */
+.wk-tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.wk-tool { display: grid; justify-items: center; gap: 2px; padding: 8px 4px; border-radius: 12px; border: 2px solid var(--edge); background: var(--surface); color: var(--ink); box-shadow: 0 3px 0 var(--edge); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: transform .14s var(--spring), box-shadow .12s; }
+.wk-tool > span { font-size: 20px; line-height: 1.1; }
+.wk-tool small { font-size: 11px; color: var(--ink-soft); }
+.wk-tool.done { background: color-mix(in srgb, var(--ok) 16%, var(--surface)); }
+.wk-tool.done small { color: var(--ok); }
+.wk-tool:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 0 0 var(--edge); }
+.wk-tool:disabled { opacity: .45; cursor: default; box-shadow: none; border-color: var(--edge-soft); }
+@media (hover: hover) { .wk-tool:hover:not(:disabled) { transform: translateY(-3px) rotate(-1deg); } }
+.wk-lines { margin: 0; padding: 8px 10px 8px 26px; font-size: 14px; font-family: var(--f-mono); background: #fbfaf6; color: #3d3a33; border: 2px solid var(--edge); border-radius: 8px; }
+.wk-guess { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 16px; }
+.wk-routes { display: grid; gap: 8px; }
+.wk-route { text-align: left; padding: 9px 12px; border-radius: 12px; border: 2px solid var(--edge); border-left: 10px solid var(--c, var(--edge)); background: var(--surface); color: var(--ink); box-shadow: 0 3px 0 var(--edge); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; display: grid; transition: transform .12s var(--ease-out), box-shadow .12s var(--ease-out); }
+.wk-route small { font-size: 12px; font-weight: 400; color: var(--ink-soft); }
+.wk-route.order { --c: var(--r-epic); }
+.wk-route.back { --c: var(--ink-soft); background: var(--surface-2); }
+.wk-route:active { transform: translateY(3px); box-shadow: 0 0 0 var(--edge); }
+@media (hover: hover) { .wk-route:hover { transform: translateX(3px); } }
+
+/* buttons: the station's chunky postal-blue button */
+.wk-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* the ledger: permanent back-room upgrades, inked rows and a brass mark count */
+.wk-ledger { align-content: start; }
+.wk-marks { display: inline-flex; align-items: center; gap: 5px; padding: 2px 10px; border-radius: 999px; border: 2px solid var(--edge); box-shadow: 0 2px 0 var(--edge); background: linear-gradient(180deg, #ffe08a, var(--brass)); color: #3a2c1f; font-weight: 700; font-variant-numeric: tabular-nums; }
+.wk-marks b { font-family: var(--f-display); font-weight: 400; font-size: 18px; }
+.wk-active { margin: 0; padding: 6px 9px; border-radius: 8px; background: var(--surface-2); border: 2px dashed var(--edge-soft); font-size: 12px; font-weight: 700; color: var(--ink); }
+.wk-lrow { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; padding: 8px 10px; border-radius: 10px; background: var(--surface-2); border: 2px dashed var(--edge-soft); }
+.wk-linfo { display: grid; gap: 1px; min-width: 0; }
+.wk-linfo b { font-family: var(--f-display); font-weight: 400; font-size: 16px; }
+.wk-linfo small { font-size: 12px; color: var(--ink-soft); }
+.wk-pips { display: flex; gap: 3px; }
+.wk-pips i { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--edge); background: var(--surface); }
+.wk-pips i.on { background: var(--stamp); box-shadow: inset 0 -2px 0 rgba(0,0,0,.2); }
+.wk-buy { padding: 6px 10px; border-radius: 999px; border: 2px solid var(--edge); background: var(--accent); color: var(--accent-ink); box-shadow: 0 3px 0 var(--edge); font: inherit; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.wk-buy:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 var(--edge); }
+.wk-buy:disabled { opacity: .45; cursor: default; box-shadow: none; }
+.wk-max { font-size: 12px; font-weight: 700; color: var(--ok); }
+.wk-mods { justify-self: start; font-size: 12px; font-weight: 700; color: var(--ink-soft); background: var(--surface); border: 2px solid var(--edge-soft); border-radius: 999px; padding: 2px 10px; }
+.wk-btn { padding: 12px 20px; border-radius: 12px; border: 2px solid var(--edge); background: var(--accent); color: var(--accent-ink); font-family: var(--f-display); font-size: 18px; letter-spacing: .02em; cursor: pointer; box-shadow: 0 5px 0 var(--edge);
+  background-image: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,0) 55%); text-shadow: 0 1px 0 rgba(0,0,0,.25); transition: transform .12s var(--ease-out), box-shadow .12s var(--ease-out), filter .12s; }
+.wk-btn.ghost { background-color: var(--surface); color: var(--ink); box-shadow: 0 4px 0 var(--edge); text-shadow: none; }
+.wk-btn:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 1px 0 var(--edge); }
+.wk-btn:disabled { opacity: .5; cursor: default; }
+@media (hover: hover) { .wk-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 7px 0 var(--edge); filter: brightness(1.05); } }
+
+/* evening: postage-stamp cards with perforated edges */
+.wk-offer { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; padding: 4px; }
+.wk-stamp { display: block; padding: 0; border: 0; background: none; color: #3a2c1f; font: inherit; text-align: left; cursor: pointer; filter: drop-shadow(2px 0 0 var(--edge)) drop-shadow(-2px 0 0 var(--edge)) drop-shadow(0 -2px 0 var(--edge)) drop-shadow(0 4px 0 var(--edge)); transition: transform .2s var(--spring); }
+.wk-paper { position: relative; display: grid; gap: 4px; height: 100%; padding: 18px 16px; background: var(--grain), #fff8e6;
+  -webkit-mask: radial-gradient(circle 5px at 50% 50%, #0000 96%, #000) -7px -7px / 14px 14px, linear-gradient(#000 0 0) 7px 7px / calc(100% - 14px) calc(100% - 14px) no-repeat;
+  mask: radial-gradient(circle 5px at 50% 50%, #0000 96%, #000) -7px -7px / 14px 14px, linear-gradient(#000 0 0) 7px 7px / calc(100% - 14px) calc(100% - 14px) no-repeat; }
+.wk-paper::before { content: ""; position: absolute; inset: 11px; border: 2px solid var(--stamp); border-radius: 4px; pointer-events: none; opacity: .6; }
+.wk-paper small { position: relative; font-family: var(--f-mono); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 11px; color: var(--stamp); }
+.wk-paper b { position: relative; font-family: var(--f-display); font-weight: 400; font-size: 19px; }
+.wk-paper > span { position: relative; font-size: 13px; }
+.wk-stamp:nth-child(1) { transform: rotate(-1.5deg); } .wk-stamp:nth-child(3) { transform: rotate(1.5deg); }
+@media (hover: hover) { .wk-stamp:hover { transform: translateY(-5px) rotate(0); } }
+
+.wk-end { text-align: center; justify-items: center; }
+.wk-result { font-size: 30px; color: #fff3d2; -webkit-text-stroke: 6px var(--edge); paint-order: stroke fill; text-shadow: 0 4px 0 var(--edge); }
+.wk-grade { margin: 0; font-size: 40px; color: var(--brass); letter-spacing: .12em; text-shadow: 0 3px 0 var(--edge); }
+
+/* intro: a little stack of the crates you will be handling */
+.wk-pile { display: flex; justify-content: center; align-items: flex-end; height: 104px; margin-bottom: 4px; }
+.wk-pile .wk-crate { width: 88px; height: 76px; flex: none; margin: 0 -6px; filter: drop-shadow(0 4px 0 rgba(58,44,31,.3)); }
+.wk-pile .wk-crate:nth-child(1) { transform: rotate(-6deg); }
+.wk-pile .wk-crate:nth-child(2) { width: 100px; height: 88px; z-index: 1; }
+.wk-pile .wk-crate:nth-child(3) { transform: rotate(5deg); }
+
+.wk-feedback { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); max-width: calc(100% - 28px); background: var(--surface); color: var(--ink); border: 2px solid var(--edge); box-shadow: 0 4px 0 var(--edge); padding: 9px 16px; border-radius: 999px; font-size: 14px; font-weight: 700; z-index: 2; animation: wkPop .35s var(--spring); }
+.wk-feedback:empty { display: none; }
+.wk-feedback.bad { background: var(--stamp); color: #fff; }
+@keyframes wkPop { from { transform: translateX(-50%) translateY(12px) scale(.9); opacity: 0; } }
+.wk button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+@media (max-width: 520px) {
+  .wk-brand h1 { font-size: 24px; }
+  .wk-stats { grid-template-columns: repeat(2, 1fr); }
+  .wk-shops { grid-template-columns: 1fr; }
+  .wk-tools { grid-template-columns: repeat(2, 1fr); }
+  .wk-desk { grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); column-gap: 12px; }
+  .wk-active { margin: 0; padding: 6px 9px; border-radius: 8px; background: var(--surface-2); border: 2px dashed var(--edge-soft); font-size: 12px; font-weight: 700; color: var(--ink); }
+.wk-lrow { grid-template-columns: 1fr auto; }
+  .wk-linfo { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wk *, .wk *::before, .wk-bulb { animation: none !important; transition: none !important; }
+  .wk-parcel.sel .wk-crate { transform: none; }
+}
+
+/* Weekend reward checklist, shown on the intro and in the result. */
+.wk-rewards { display: grid; gap: 4px; }
+.wk-reward-list li { color: var(--ink-soft); }
+.wk-reward-list li.done { color: var(--ok); font-weight: 700; }
+.wk-reward-list li b { font-family: var(--f-mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; border: 2px solid currentColor; border-radius: 999px; padding: 0 6px; }

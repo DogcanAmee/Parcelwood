@@ -1,0 +1,22 @@
+
+> parcelwood@0.1.0 check:release
+> node scripts/check-release.mjs
+
+CrazyGames     709 kB  17 files
+Discord       1084 kB  17 files
+
+Running the 10-size layout check ...
+
+CrazyGames 10-size layout check (10 sizes, dpr=1)
+
+SIZE        STATE                         RESULT  DETAIL
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Layout: 170/170 states pass
+Keyboard: PASS {"ok":true,"selected":"true","escapedPauses":0,"pPauses":1,"pResumes":0,"rushLayout":{"pageOk":true,"overlayOk":true,"out":0}}
+Loading:  PASS {"fcp":24,"loadingVisible":true,"sdkOk":true,"calls":["init","loadingStart","gameplayStart","loadingStop"]}
+Screenshots: /private/var/folders/sl/t_rpmhmn17d9rbxpfkkqyddw0000gn/T/paperclip-run-tao-156-a7308ced-990-0IA2MS/opencode/parcelwood-m32/qa/tao-24/screens
+
+Result: PASS
+
+Release check passed.

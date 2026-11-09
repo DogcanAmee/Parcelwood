@@ -1,0 +1,28 @@
+
+> parcelwood@0.1.0 build:crazygames
+> tsc && vite build --config vite.crazygames.config.ts
+
+vite v6.4.5 building for production...
+transforming...
+✓ 68 modules transformed.
+rendering chunks...
+computing gzip size...
+../dist-crazygames/index.html                                              2.65 kB │ gzip:   1.24 kB
+../dist-crazygames/assets/lilita-one-latin-400-normal-87r-Z-Re.woff2      10.67 kB
+../dist-crazygames/assets/figtree-latin-700-normal-th6qEP7c.woff2         11.38 kB
+../dist-crazygames/assets/figtree-latin-400-normal-g7Dtegnw.woff2         11.38 kB
+../dist-crazygames/assets/figtree-latin-600-normal-Cv_xCTDl.woff2         11.54 kB
+../dist-crazygames/assets/lilita-one-latin-400-normal-DXkechA3.woff       13.52 kB
+../dist-crazygames/assets/courier-prime-latin-400-normal-BAlbUm6l.woff    14.38 kB
+../dist-crazygames/assets/courier-prime-latin-700-normal-CVvp4Sof.woff    14.68 kB
+../dist-crazygames/assets/figtree-latin-400-normal-BD4aNku5.woff          15.04 kB
+../dist-crazygames/assets/figtree-latin-700-normal-BCCt2T1q.woff          15.16 kB
+../dist-crazygames/assets/figtree-latin-600-normal-BM_oTo4n.woff          15.21 kB
+../dist-crazygames/assets/courier-prime-latin-400-normal-BbyBr73r.woff2   18.64 kB
+../dist-crazygames/assets/courier-prime-latin-700-normal-D1YCjmaD.woff2   19.35 kB
+../dist-crazygames/assets/week-BkZ5LjIP.css                               17.63 kB │ gzip:   4.16 kB
+../dist-crazygames/assets/index-1jfYe34b.css                             139.00 kB │ gzip:  29.50 kB
+../dist-crazygames/assets/week-tEKguPHa.js                                14.93 kB │ gzip:   5.38 kB
+../dist-crazygames/assets/rushHour-w2ZHgaI8.js                            26.41 kB │ gzip:  10.58 kB
+../dist-crazygames/assets/index-QnG6hg3M.js                              356.93 kB │ gzip: 132.68 kB
+✓ built in 391ms

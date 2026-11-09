@@ -1,0 +1,213 @@
+800x450	popup-guide	PASS	
+800x450	station: Today	PASS	
+800x450	station: Street	PASS	
+800x450	station: Odds	PASS	
+800x450	station: Town	PASS	
+800x450	town: Board	PASS	
+800x450	town: Daily	PASS	
+800x450	town: Street	PASS	
+800x450	town: Level	PASS	
+800x450	town: Story	PASS	
+800x450	album	PASS	
+800x450	shop: Rewards	PASS	
+800x450	shop: Decor	PASS	
+800x450	shop: Today	PASS	
+800x450	inspect	PASS	
+800x450	unbox	PASS	
+800x450	reveal	PASS	
+800x450	popup-help	PASS	
+800x450	popup-odds	PASS	
+800x450	popup-item	PASS	
+800x450	popup-street	PASS	
+821x462	popup-guide	PASS	
+821x462	station: Today	PASS	
+821x462	station: Street	PASS	
+821x462	station: Odds	PASS	
+821x462	station: Town	PASS	
+821x462	town: Board	PASS	
+821x462	town: Daily	PASS	
+821x462	town: Street	PASS	
+821x462	town: Level	PASS	
+821x462	town: Story	PASS	
+821x462	album	PASS	
+821x462	shop: Rewards	PASS	
+821x462	shop: Decor	PASS	
+821x462	shop: Today	PASS	
+821x462	inspect	PASS	
+821x462	unbox	PASS	
+821x462	reveal	PASS	
+821x462	popup-help	PASS	
+821x462	popup-odds	PASS	
+821x462	popup-item	PASS	
+821x462	popup-street	PASS	
+907x510	popup-guide	PASS	
+907x510	station: Today	PASS	
+907x510	station: Street	PASS	
+907x510	station: Odds	PASS	
+907x510	station: Town	PASS	
+907x510	town: Board	PASS	
+907x510	town: Daily	PASS	
+907x510	town: Street	PASS	
+907x510	town: Level	PASS	
+907x510	town: Story	PASS	
+907x510	album	PASS	
+907x510	shop: Rewards	PASS	
+907x510	shop: Decor	PASS	
+907x510	shop: Today	PASS	
+907x510	inspect	PASS	
+907x510	unbox	PASS	
+907x510	reveal	PASS	
+907x510	popup-help	PASS	
+907x510	popup-odds	PASS	
+907x510	popup-item	PASS	
+907x510	popup-street	PASS	
+1077x606	popup-guide	PASS	
+1077x606	station: Today	PASS	
+1077x606	station: Street	PASS	
+1077x606	station: Odds	PASS	
+1077x606	station: Town	PASS	
+1077x606	town: Board	PASS	
+1077x606	town: Daily	PASS	
+1077x606	town: Street	PASS	
+1077x606	town: Level	PASS	
+1077x606	town: Story	PASS	
+1077x606	album	PASS	
+1077x606	shop: Rewards	PASS	
+1077x606	shop: Decor	PASS	
+1077x606	shop: Today	PASS	
+1077x606	inspect	PASS	
+1077x606	unbox	PASS	
+1077x606	reveal	PASS	
+1077x606	popup-help	PASS	
+1077x606	popup-odds	PASS	
+1077x606	popup-item	PASS	
+1077x606	popup-street	PASS	
+1080x607	popup-guide	PASS	
+1080x607	station: Today	PASS	
+1080x607	station: Street	PASS	
+1080x607	station: Odds	PASS	
+1080x607	station: Town	PASS	
+1080x607	town: Board	PASS	
+1080x607	town: Daily	PASS	
+1080x607	town: Street	PASS	
+1080x607	town: Level	PASS	
+1080x607	town: Story	PASS	
+1080x607	album	PASS	
+1080x607	shop: Rewards	PASS	
+1080x607	shop: Decor	PASS	
+1080x607	shop: Today	PASS	
+1080x607	inspect	PASS	
+1080x607	unbox	PASS	
+1080x607	reveal	PASS	
+1080x607	popup-help	PASS	
+1080x607	popup-odds	PASS	
+1080x607	popup-item	PASS	
+1080x607	popup-street	PASS	
+1216x684	popup-guide	PASS	
+1216x684	station: Today	PASS	
+1216x684	station: Street	PASS	
+1216x684	station: Odds	PASS	
+1216x684	station: Town	PASS	
+1216x684	town: Board	PASS	
+1216x684	town: Daily	PASS	
+1216x684	town: Street	PASS	
+1216x684	town: Level	PASS	
+1216x684	town: Story	PASS	
+1216x684	album	PASS	
+1216x684	shop: Rewards	PASS	
+1216x684	shop: Decor	PASS	
+1216x684	shop: Today	PASS	
+1216x684	inspect	PASS	
+1216x684	unbox	PASS	
+1216x684	reveal	PASS	
+1216x684	popup-help	PASS	
+1216x684	popup-odds	PASS	
+1216x684	popup-item	PASS	
+1216x684	popup-street	PASS	
+1280x720	popup-guide	PASS	
+1280x720	station: Today	PASS	
+1280x720	station: Street	PASS	
+1280x720	station: Odds	PASS	
+1280x720	station: Town	PASS	
+1280x720	town: Board	PASS	
+1280x720	town: Daily	PASS	
+1280x720	town: Street	PASS	
+1280x720	town: Level	PASS	
+1280x720	town: Story	PASS	
+1280x720	album	PASS	
+1280x720	shop: Rewards	PASS	
+1280x720	shop: Decor	PASS	
+1280x720	shop: Today	PASS	
+1280x720	inspect	PASS	
+1280x720	unbox	PASS	
+1280x720	reveal	PASS	
+1280x720	popup-help	PASS	
+1280x720	popup-odds	PASS	
+1280x720	popup-item	PASS	
+1280x720	popup-street	PASS	
+1366x768	popup-guide	PASS	
+1366x768	station: Today	PASS	
+1366x768	station: Street	PASS	
+1366x768	station: Odds	PASS	
+1366x768	station: Town	PASS	
+1366x768	town: Board	PASS	
+1366x768	town: Daily	PASS	
+1366x768	town: Street	PASS	
+1366x768	town: Level	PASS	
+1366x768	town: Story	PASS	
+1366x768	album	PASS	
+1366x768	shop: Rewards	PASS	
+1366x768	shop: Decor	PASS	
+1366x768	shop: Today	PASS	
+1366x768	inspect	PASS	
+1366x768	unbox	PASS	
+1366x768	reveal	PASS	
+1366x768	popup-help	PASS	
+1366x768	popup-odds	PASS	
+1366x768	popup-item	PASS	
+1366x768	popup-street	PASS	
+1536x864	popup-guide	PASS	
+1536x864	station: Today	PASS	
+1536x864	station: Street	PASS	
+1536x864	station: Odds	PASS	
+1536x864	station: Town	PASS	
+1536x864	town: Board	PASS	
+1536x864	town: Daily	PASS	
+1536x864	town: Street	PASS	
+1536x864	town: Level	PASS	
+1536x864	town: Story	PASS	
+1536x864	album	PASS	
+1536x864	shop: Rewards	PASS	
+1536x864	shop: Decor	PASS	
+1536x864	shop: Today	PASS	
+1536x864	inspect	PASS	
+1536x864	unbox	PASS	
+1536x864	reveal	PASS	
+1536x864	popup-help	PASS	
+1536x864	popup-odds	PASS	
+1536x864	popup-item	PASS	
+1536x864	popup-street	PASS	
+1920x1080	popup-guide	PASS	
+1920x1080	station: Today	PASS	
+1920x1080	station: Street	PASS	
+1920x1080	station: Odds	PASS	
+1920x1080	station: Town	PASS	
+1920x1080	town: Board	PASS	
+1920x1080	town: Daily	PASS	
+1920x1080	town: Street	PASS	
+1920x1080	town: Level	PASS	
+1920x1080	town: Story	PASS	
+1920x1080	album	PASS	
+1920x1080	shop: Rewards	PASS	
+1920x1080	shop: Decor	PASS	
+1920x1080	shop: Today	PASS	
+1920x1080	inspect	PASS	
+1920x1080	unbox	PASS	
+1920x1080	reveal	PASS	
+1920x1080	popup-help	PASS	
+1920x1080	popup-odds	PASS	
+1920x1080	popup-item	PASS	
+1920x1080	popup-street	PASS	
+
+Keyboard	{"ok":true,"selected":"true","escapedPauses":0,"pPauses":1,"pResumes":0,"rushLayout":{"pageOk":true,"overlayOk":true,"out":0}}
+Loading	{"ok":true,"loadingVisible":true,"fcp":36,"calls":["init","loadingStart","gameplayStart","loadingStop"],"sdkOk":true}

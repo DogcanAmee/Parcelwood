@@ -1,0 +1,289 @@
+/* CrazyGames build only. */
+html, body { overscroll-behavior: none; }
+body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, select, textarea { -webkit-user-select: auto; user-select: auto; }
+
+.ad-offer { flex-wrap: wrap; }
+.ad-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.ad-btns .btn { font-size: 15px; min-width: 104px; padding: 9px 12px; }
+.ad-btns .btn:disabled { opacity: .55; }
+.ad-station { margin-top: 2px; padding-top: 8px; border-top: 1px dashed var(--line); display: flex; flex-direction: column; gap: 2px; }
+.ad-station .offer { padding-top: 4px; }
+a.btn { display: block; text-align: center; text-decoration: none; }
+.note .note-t { font-size: 14px; line-height: 1.2; }
+.ad-offer { gap: 10px; }
+.ad-offer .ot { flex: 1 1 160px; }
+.ad-art { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: var(--surface-2); border: 2px solid var(--edge, #3b2a1a); }
+.ad-art .ico { height: 30px; vertical-align: 0; }
+.play-ico { width: 1.15em; height: 1.15em; vertical-align: -0.2em; }
+.ad-cover .big .play-ico { width: 56px; height: 56px; }
+
+/* free-rewards side column: today's station and the free ways to earn */
+.today-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.today-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; line-height: 1.3; padding: 8px 10px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line); }
+.today-list .ti { flex: none; width: 30px; height: 30px; display: grid; place-items: center; }
+.today-list .ti .ico { height: 26px; vertical-align: 0; }
+.today-list .ti .play-ico { width: 24px; height: 24px; vertical-align: 0; }
+.today-list .mq { width: 24px; height: 24px; border-radius: 50%; background: #c8402f; color: #fff; display: grid; place-items: center; border: 2px solid #7a1f14; font-family: var(--f-display); font-size: 14px; }
+
+.ad-cover { position: fixed; inset: 0; z-index: 90; background: rgba(10,15,20,.82); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; padding: 16px; }
+.ad-cover .big { font-size: 48px; }
+
+.mock-ad { position: fixed; inset: 0; z-index: 100; background: #111; color: #fff; display: grid; place-items: center; padding: 16px; }
+.mock-ad-box { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.mock-ad-tag { font-family: var(--f-mono); letter-spacing: .1em; font-size: 12px; color: #ffd36a; }
+.mock-ad-kind { font-family: var(--f-display); font-size: 22px; }
+.mock-ad-count { font-family: var(--f-display); font-size: 64px; }
+body.cg-test-build::before { content: 'TEST BUILD · 测试版（模拟广告）'; position: fixed; left: 0; right: 0; bottom: 0; z-index: 95; text-align: center; font: 700 11px var(--f-mono); letter-spacing: .08em; background: #ffd36a; color: #3a2a00; padding: 2px; pointer-events: none; }
+
+/* =========================================================================
+   Fixed game stage (CrazyGames only)
+   The whole game lives inside the viewport: the document never scrolls, the
+   left rail paints the full height, and each page shows one compact panel set
+   behind tabs. Sizes below scale with viewport height (all text stays >= 12px).
+   The web and Discord builds keep the normal scrolling layout in styles.css.
+   ========================================================================= */
+body.cg-stage, html.cg-stage { height: 100%; overflow: hidden; }
+body.cg-stage { --cg-pad: clamp(6px, 1.3vh, 14px); --cg-gap: clamp(4px, 1vh, 12px); overflow: hidden; }
+body.cg-stage .app {
+  position: fixed; inset: 0; max-width: none; margin: 0;
+  height: 100dvh; min-height: 0; overflow: hidden;
+  display: flex; flex-direction: column; gap: var(--cg-gap);
+  padding: var(--cg-pad) var(--cg-pad) var(--cg-pad) calc(var(--rail, 0px) + var(--cg-pad));
+}
+body.cg-stage .app > .top { flex: none; }
+body.cg-stage .app > .cols, body.cg-stage .app > .stage-page { flex: 1 1 auto; min-height: 0; overflow: hidden; }
+body.cg-stage .cols { width: 100%; }
+body.cg-stage .col-main, body.cg-stage .col-side { min-height: 0; overflow: hidden; }
+body.cg-stage .stage-page { width: 100%; max-width: 1100px; margin-inline: auto; display: flex; flex-direction: column; }
+body.cg-stage .stage-page > * { min-height: 0; flex: 0 1 auto; }
+
+/* Tab strip */
+body.cg-stage .stage-tabs { flex: none; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 1px 0 2px; }
+body.cg-stage .stage-tabs::-webkit-scrollbar { display: none; }
+body.cg-stage .stage-tabs button { flex: 0 0 auto; border: 2px solid var(--outline, #3b2a1a); border-radius: 999px; background: var(--paper, #fffaf0); color: #3b2a1a;
+  padding: clamp(3px, .7vh, 7px) clamp(9px, 1.4vw, 16px); font: 400 clamp(12px, 1.6vh, 16px)/1.1 var(--f-display); box-shadow: 0 2px 0 var(--outline, #3b2a1a); white-space: nowrap; }
+body.cg-stage .stage-tabs button[aria-selected="true"] { background: var(--accent, #2456c4); color: #fff; border-color: #173a8a; }
+
+/* The rail is a fixed full-height strip on every page. */
+body.cg-stage .nav { background: repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 3px, transparent 3px 30px), linear-gradient(180deg, var(--wood), var(--wood-dark)); border-right: 3px solid var(--edge); }
+body.cg-stage .nav-in { align-content: center; }
+
+/* Global density: panels, buttons and headers shrink before their text does. */
+body.cg-stage .panel { padding: clamp(7px, 1.5vh, 14px); gap: clamp(5px, 1.1vh, 12px); border-width: 2px; border-radius: 14px; }
+body.cg-stage .btn { font-size: clamp(13px, 1.8vh, 18px); padding: clamp(6px, 1.3vh, 13px) clamp(10px, 1.5vw, 16px); border-width: 2px; border-radius: 12px; }
+body.cg-stage .btn.slim { font-size: clamp(12px, 1.5vh, 15px); padding: clamp(4px, .9vh, 7px) clamp(8px, 1.2vw, 14px); }
+body.cg-stage .icon-btn { width: clamp(30px, 4.2vh, 38px); height: clamp(30px, 4.2vh, 38px); font-size: clamp(14px, 2vh, 18px); border-width: 2px; }
+body.cg-stage header.top { gap: 6px; }
+body.cg-stage .wallet { gap: 4px; }
+body.cg-stage .chip { padding: 3px 8px; font-size: clamp(12px, 1.5vh, 14px); }
+body.cg-stage h1 { font-size: clamp(20px, 3.4vh, 30px); }
+
+/* Station: a shorter facade and a tighter shelf leave room for the side tab. */
+body.cg-stage .counter { padding-top: 0; }
+body.cg-stage .facade { height: clamp(54px, 16vh, 176px); margin-inline: 0; }
+body.cg-stage .facade .sign { top: clamp(6px, 3vh, 36px); }
+body.cg-stage .facade .sign span { font-size: clamp(13px, 2.2vh, 22px); padding: 3px 12px; }
+body.cg-stage .facade .awning { bottom: 6px; height: clamp(12px, 3vh, 30px); }
+body.cg-stage .facade .roof { top: clamp(22px, 7vh, 56px); }
+body.cg-stage .facade .sun { width: clamp(24px, 4.6vh, 48px); height: clamp(24px, 4.6vh, 48px); top: 6px; }
+body.cg-stage .facade .lamp { top: clamp(30px, 9vh, 74px); }
+body.cg-stage .counter .shelf { grid-template-columns: repeat(auto-fill, minmax(clamp(54px, 9vh, 88px), 1fr)); column-gap: clamp(6px, 1vw, 14px); row-gap: clamp(9px, 2.4vh, 26px); padding: clamp(6px, 1.5vh, 14px) clamp(6px, 1vw, 12px) clamp(9px, 2.4vh, 22px); }
+body.cg-stage .myst-timer { font-size: clamp(12px, 1.6vh, 15px); padding: 1px 8px 1px 2px; border-width: 2px; }
+body.cg-stage .myst-timer .mq { width: clamp(20px, 3vh, 26px); height: clamp(20px, 3vh, 26px); font-size: 12px; }
+body.cg-stage .clk { font-size: clamp(12px, 1.5vh, 14px); padding: 0 8px; }
+body.cg-stage .rush-prompt { padding: 6px; gap: 3px; }
+body.cg-stage .ad-station { padding-top: 4px; }
+
+/* Today: compact check-in and quest rows. */
+body.cg-stage .today-panel .checkin { padding: clamp(5px, 1vh, 10px); gap: clamp(3px, .7vh, 8px); border-width: 2px; }
+body.cg-stage .checkin-head b { font-size: clamp(12px, 1.6vh, 15px); }
+body.cg-stage .stamp-row { gap: 4px; }
+body.cg-stage .stamp-box { height: clamp(22px, 3.6vh, 34px); font-size: 12px; border-width: 2px; border-radius: 7px; }
+body.cg-stage .checkin-big { display: none; }
+body.cg-stage .quest-list { gap: clamp(3px, .7vh, 8px); }
+body.cg-stage .quest-row { padding: clamp(4px, .8vh, 8px) 6px; gap: 6px; border-width: 2px; border-radius: 9px; }
+body.cg-stage .quest-ic { flex-basis: 22px; font-size: 16px; }
+body.cg-stage .quest-t { font-size: clamp(12px, 1.5vh, 14px); line-height: 1.15; }
+body.cg-stage .quest-body { gap: 2px; }
+body.cg-stage .quest-row .progress { height: 6px; }
+body.cg-stage .quest-bonus { padding: 3px 6px; font-size: 12px; }
+body.cg-stage .pity-panel { padding: clamp(6px, 1.1vh, 10px) clamp(8px, 1.2vw, 12px); gap: 6px; }
+body.cg-stage .pity div { padding: 4px 6px; font-size: 12px; }
+body.cg-stage .pity b { font-size: clamp(14px, 2vh, 18px); }
+body.cg-stage .town-strip { gap: 4px; }
+body.cg-stage .street { gap: 6px; }
+body.cg-stage .shop { min-height: clamp(70px, 16vh, 104px); padding-top: clamp(14px, 3.4vh, 22px); }
+body.cg-stage .shop .sn { font-size: 12px; }
+body.cg-stage .shop .ss { font-size: 12px; }
+
+/* Town pages: board notes in a row, the other panels keep their natural compact height. */
+body.cg-stage .board-panel { padding-block: clamp(6px, 1.2vh, 12px); gap: clamp(4px, .8vh, 8px); }
+body.cg-stage .board-panel .cork { display: grid; grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px; padding: 4px 10px 2px; }
+body.cg-stage .board-panel .note { font-size: 12px; }
+body.cg-stage .board-panel .note-by { display: none; }
+body.cg-stage .board-panel .board-bonus { padding-block: 3px; }
+body.cg-stage .town-daily, body.cg-stage .town-street { padding: 8px 8px 10px; gap: 6px; border-width: 2px; border-radius: 14px; }
+body.cg-stage .dgrid { gap: 6px 5px; }
+body.cg-stage .cslot { border-width: 2px; }
+body.cg-stage .scene.book { padding: 6px 7px 8px; border-width: 2px; border-radius: 14px; gap: 0; }
+body.cg-stage .marks { gap: 4px; padding-left: 8px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+body.cg-stage .marks::-webkit-scrollbar { display: none; }
+body.cg-stage .bmark { padding: 2px 8px 6px; font-size: 12px; border-width: 2px; white-space: nowrap; }
+body.cg-stage .page { padding: 6px 8px 8px; gap: 6px; margin-left: 4px; border-width: 2px; box-shadow: -4px 0 0 #6e4329, 0 3px 0 #3b2a1a; }
+body.cg-stage .page-head h3 { font-size: clamp(14px, 2vh, 20px); }
+body.cg-stage .goal .bar { height: 10px; }
+body.cg-stage .goal b { font-size: 14px; }
+body.cg-stage .sbook { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(5px, 1.1vh, 14px) clamp(4px, .8vw, 12px); }
+body.cg-stage .stk-slot .e { font-size: 24px; }
+body.cg-stage .page-foot { margin-top: 0; }
+body.cg-stage .schip { font-size: 12px; }
+
+/* Shop pages: decorations become a compact two-row rack, not a long list. */
+body.cg-stage .decor-shop { min-height: 0; overflow: hidden; }
+/* 14 cards no longer fit a short stage in one screen: the grid scrolls inside the panel, so the panel itself
+   never clips and every card stays reachable. */
+body.cg-stage .decor-shop .decor-grid { flex: 1 1 auto; min-height: 0; overflow-y: auto; grid-template-columns: repeat(auto-fill, minmax(clamp(82px, 11vw, 130px), 1fr)); gap: 6px; margin-top: 4px; padding-right: 2px; }
+body.cg-stage .decor-card { padding: 5px 4px; gap: 3px; border-width: 2px; border-radius: 9px; }
+body.cg-stage .decor-pic img { max-height: clamp(44px, 9vh, 84px); width: auto; }
+body.cg-stage .decor-model, body.cg-stage .decor-card .decor-spot { display: none; }
+body.cg-stage .ad-offer { padding: 6px 8px; }
+body.cg-stage .ad-btns .btn { font-size: 12px; min-width: 0; padding: 4px 8px; }
+body.cg-stage .ad-art { width: 34px; height: 34px; }
+body.cg-stage .today-list li { padding: 4px 7px; font-size: 12px; gap: 6px; }
+body.cg-stage .today-list .ti { width: 24px; height: 24px; }
+
+/* Sheets: the same two-column layout, with smaller gaps and a parcel that leaves room for its tools. */
+body.cg-stage .sheet { padding: clamp(5px, 1.1vh, 10px) clamp(8px, 1.4vw, 16px) clamp(10px, 2vh, 24px); }
+body.cg-stage .sheet-inner { gap: clamp(5px, 1.1vh, 14px); }
+body.cg-stage .sheet-top { gap: 6px; }
+body.cg-stage .sheet-cols { gap: clamp(10px, 1.8vw, 24px); }
+body.cg-stage .sheet-left, body.cg-stage .sheet-right { gap: clamp(5px, 1.1vh, 14px); }
+body.cg-stage .sheet-left .bigbox { width: min(300px, 34vw, 48vh); }
+body.cg-stage .counter-scene .stage { padding: clamp(4px, 1vh, 18px) 0 clamp(8px, 1.6vh, 34px); }
+body.cg-stage .unbox .sheet-inner > .stage { padding-top: clamp(8px, 2vh, 64px); }
+body.cg-stage .tool { padding: 5px 3px 4px; gap: 0; font-size: 12px; border-radius: 9px; }
+body.cg-stage .tool .ti { font-size: 17px; }
+body.cg-stage .tool .tc { font-size: 10px; }
+body.cg-stage .clues { gap: 3px; }
+body.cg-stage .clue { font-size: 12px; }
+body.cg-stage .clue .k { font-size: 10px; min-width: 48px; }
+body.cg-stage .pick button { padding: 4px 9px; font-size: 12px; }
+body.cg-stage .sheet.counter-scene .sheet-right { padding: clamp(5px, 1.1vh, 16px); }
+body.cg-stage .sheet.counter-scene .stage { background: linear-gradient(180deg, transparent calc(100% - 34px), #dba679 calc(100% - 34px), #dba679 calc(100% - 30px), #c58b5c calc(100% - 30px), #a8704a 100%); }
+body.cg-stage .result-scene .reveal { padding: clamp(4px, 2vh, 6vh) 0 4px; column-gap: 20px; row-gap: 4px; }
+body.cg-stage .result-scene .reveal .art { width: clamp(120px, 30vh, 220px); height: clamp(120px, 30vh, 220px); }
+body.cg-stage .result-scene .reveal .art .itm { width: 82%; height: 82%; }
+body.cg-stage .reveal .note { font-size: 13px; }
+body.cg-stage .result-scene .row .btn { font-size: 13px; padding: 6px 10px; }
+@media (orientation: landscape) and (min-width: 1200px) and (min-height: 720px) {
+  body.cg-stage .result-scene .reveal .art { width: clamp(180px, 30vh, 300px); height: clamp(180px, 30vh, 300px); }
+  body.cg-stage .result-scene .reveal .art .itm { width: 220px; height: 220px; }
+}
+
+/* Modals: fit inside the stage; the guide drops its long copy before it drops a control. */
+body.cg-stage .modal-back { padding: 6px; overflow: hidden; }
+body.cg-stage .modal { max-height: calc(100dvh - 12px); padding: clamp(9px, 1.6vh, 18px); gap: clamp(5px, 1vh, 12px); border-width: 2px; box-shadow: 0 4px 0 var(--edge); }
+body.cg-stage .modal .big { font-size: clamp(34px, 6vh, 64px); }
+body.cg-stage .modal p { font-size: clamp(12px, 1.5vh, 14px); }
+body.cg-stage .modal .btn { font-size: clamp(13px, 1.7vh, 16px); padding: 6px 12px; }
+body.cg-stage .modal.guide { max-width: min(520px, 96vw); }
+body.cg-stage .ghead { gap: 8px; }
+body.cg-stage .gmark { width: 40px; height: 40px; font-size: 22px; border-width: 2px; }
+body.cg-stage .ghead h2 { font-size: clamp(17px, 2.4vh, 24px); }
+body.cg-stage .ghead p { font-size: 12px; }
+body.cg-stage .gsteps { gap: 5px; }
+body.cg-stage .gsteps li { grid-template-columns: 20px 34px 1fr; gap: 7px; padding: 5px 7px; border-radius: 10px; }
+body.cg-stage .gnum { font-size: 15px; }
+body.cg-stage .gico { width: 34px; height: 34px; font-size: 18px; }
+body.cg-stage .gsteps b { font-size: 13px; }
+body.cg-stage .gsteps li div > span { font-size: 12px; }
+body.cg-stage .glegend, body.cg-stage .gtip { font-size: 12px; padding: 4px 6px; }
+@media (max-height: 620px) {
+  body.cg-stage .gtip { display: none; }
+  body.cg-stage .glegend { display: none; }
+}
+@media (max-height: 520px) {
+  body.cg-stage .ghead p { display: none; }
+  body.cg-stage .gsteps li div > span { display: none; }
+  body.cg-stage .modal .grid { max-height: none !important; }
+}
+
+/* Shortest windows: drop the station facade's decorative sky before the parcels lose size. */
+@media (orientation: landscape) and (max-height: 480px) {
+  body.cg-stage .facade { display: none; }
+}
+
+/* Readable minimum for the weight ranges shown on clues and album buttons. */
+body.cg-stage .w { font-size: 12px; }
+
+/* Short windows: decoration cards keep two rows, and the street loses decorative spacing before content. */
+@media (max-height: 620px) {
+  body.cg-stage .decor-shop .decor-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+  body.cg-stage .decor-card { padding: 4px; gap: 2px; }
+  body.cg-stage .decor-pic { width: 46px; height: 46px; }
+  body.cg-stage .decor-pic img { max-height: 44px; width: auto; }
+  body.cg-stage .decor-info b { font-size: 12px; line-height: 1.15; }
+  body.cg-stage .decor-info .small.muted { display: none; }
+  body.cg-stage .decor-price { font-size: 12px; }
+  body.cg-stage .decor-card .btn.slim { font-size: 12px; padding: 3px 6px; }
+  body.cg-stage .decor-card .decor-lock { font-size: 12px; }
+}
+@media (max-height: 490px) {
+  body.cg-stage .town-street { padding: 6px 6px 26px; gap: 4px; }
+  body.cg-stage .town-street .houses { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px 4px; }
+  body.cg-stage .town-street .gift-btn { width: 24px; height: 24px; font-size: 13px; }
+  body.cg-stage .town-street .hearts { font-size: 12px; padding: 0 4px; }
+}
+
+/* No page zoom inside the fixed stage: the height-based sizes above already scale everything. */
+body.cg-stage .app > *, body.cg-stage .sheet-inner, body.cg-stage .modal { zoom: 1 !important; }
+
+/* Readable labels inside the parcel art and tool captions. */
+body.cg-stage .tool .tc { font-size: 12px; }
+body.cg-stage .bigbox .label { font-size: 12px; }
+body.cg-stage .bigbox .label .to { font-size: 12px; }
+body.cg-stage .insured { font-size: 12px; }
+body.cg-stage .postmark { font-size: 12px; }
+
+/* Odds modal: the table and the rules stay; the per-series item list is reference text and folds away when short. */
+body.cg-stage .modal th { font-size: 12px; }
+body.cg-stage .modal th, body.cg-stage .modal td { padding: 4px 3px; }
+body.cg-stage .modal table { font-size: 12px; }
+@media (max-height: 720px) {
+  body.cg-stage .odds-items { display: none; }
+}
+
+/* Short unbox stage: the parcel gives up a little more height so the tape hint and buttons stay in view. */
+@media (max-height: 820px) {
+  body.cg-stage .result-scene .note, body.cg-stage .result-scene .react-line { display: none; }
+  body.cg-stage .result-scene .setp { display: none; }
+}
+@media (max-height: 620px) {
+  body.cg-stage .unbox .bigbox { width: min(300px, 32vw, 42vh); }
+}
+@media (max-height: 620px) {
+  body.cg-stage .sheet { padding-top: 4px; padding-bottom: 6px; }
+  body.cg-stage .sheet-inner { gap: 3px; }
+}
+@media (max-height: 620px) {
+  body.cg-stage .unbox .sheet-inner > .stage { padding: 4px 0 4px; }
+  body.cg-stage .cut-hint { margin-top: 4px; padding: 4px 10px; }
+}
+body.cg-stage .lcode, body.cg-stage .badge, body.cg-stage .rk { font-size: 12px; }
+@media (max-height: 620px) {
+  body.cg-stage .bld-list { max-height: 34vh; gap: 6px; }
+  body.cg-stage .bld-list .bld { padding: 5px 7px; }
+  body.cg-stage .bld-list .repairs { font-size: 12px; gap: 1px; }
+  body.cg-stage .modal .gift-grid, body.cg-stage .modal .grid { max-height: 38vh; }
+}
+
+/* Short landscape screens (e.g. 907x510 on CrazyGames): the station ad offer must not clip below the stage.
+   The title and buttons stay; only the description line and the large ad icon shrink on these screens. */
+@media (max-height: 560px) {
+  body.cg-stage .ad-station { margin-top: 0; padding-top: 0; gap: 1px; }
+  body.cg-stage .ad-station .offer { padding-top: 2px; }
+  body.cg-stage .ad-station .ad-offer .d { display: none; }
+  body.cg-stage .ad-station .ad-art { width: 32px; height: 32px; }
+  body.cg-stage .ad-station .ad-btns { gap: 4px; }
+}

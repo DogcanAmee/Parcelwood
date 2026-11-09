@@ -1,0 +1,15 @@
+Redraw the reference tin robot as a single game item sticker for a cozy post-office collection game.
+Keep its identity: boxy retro wind-up tin toy robot, pale teal-blue body, square head with two round eyes
+and a small mouth grille, small orange antenna ball on top, round gauge dial on the chest with tick marks only,
+three small round buttons (red, yellow, green), brass wind-up key on its side, chunky orange-red feet,
+short arms with simple claw hands.
+Strict style: chunky rounded simplified shapes, uniform thick dark brown outline (#3a2c1f) around the whole
+silhouette with thinner inner lines, flat cel shading with only 2-3 tones per color, one small hard highlight
+per surface, warm key light from the upper left with darker tones on the lower right, 3/4 front view slightly
+from above, robot turned slightly to the left.
+Palette limited to teal #23a091 and a pale teal, cream #fffaf0, old red #c8402f, brass #e8b33f, plus
+outline #3a2c1f.
+Single centered object filling about 80% of the square canvas, small empty margin at the bottom,
+isolated on a flat solid pure white background with clean separation from the edges.
+No cast shadow, no ground, no glow, no halo, no base, no props, no text, no letters, no numbers,
+no realistic texture, no rust, no scratches, no noise, no painterly brush strokes.

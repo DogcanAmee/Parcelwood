@@ -1,0 +1,10 @@
+An open kraft-paper takeout box with its flaps folded out, holding five plump pleated steamed dumplings (soup dumplings with twisted tops) on a sheet of parchment, one empty spot where a dumpling was eaten.
+Strict style: chunky rounded simplified shapes, uniform thick dark brown outline (#3a2c1f) around the whole
+silhouette with thinner inner lines, flat cel shading with only 2-3 tones per color, one small hard highlight
+per surface, warm key light from the upper left with darker tones on the lower right, 3/4 front view slightly
+from above, the object turned slightly to the left.
+Palette limited to: amber #e8962a, pale amber, cream, warm red #c8402f, leaf green #6a9a3a plus outline #3a2c1f, brass #e8b33f, cream #fffaf0.
+Single centered object filling about 80% of the square canvas, small empty margin at the bottom, isolated on a
+flat solid pure white background with clean separation from the edges.
+No cast shadow, no ground, no glow, no halo, no base, no props, no text, no letters, no numbers, no realistic
+texture, no rust, no scratches, no noise, no painterly brush strokes.

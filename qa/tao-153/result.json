@@ -1,0 +1,74 @@
+[
+  {
+    "view": "320x460",
+    "req": "modal top is on screen",
+    "pass": true,
+    "evidence": "top=34 vh=460"
+  },
+  {
+    "view": "320x460",
+    "req": "whole popup fits in the visible viewport",
+    "pass": true,
+    "evidence": "modal=34..426 vh=460 pickgrid=222 scroll=460/460"
+  },
+  {
+    "view": "320x460",
+    "req": "close button on screen and tappable after scrolling",
+    "pass": true,
+    "evidence": "before=341..406 after=341..406 hit=true"
+  },
+  {
+    "view": "320x460",
+    "req": "no horizontal overflow",
+    "pass": true,
+    "evidence": "doc=320 vw=320"
+  },
+  {
+    "view": "320x568",
+    "req": "modal top is on screen",
+    "pass": true,
+    "evidence": "top=40 vh=568"
+  },
+  {
+    "view": "320x568",
+    "req": "whole popup fits in the visible viewport",
+    "pass": true,
+    "evidence": "modal=40..528 vh=568 pickgrid=295 scroll=568/568"
+  },
+  {
+    "view": "320x568",
+    "req": "close button on screen and tappable after scrolling",
+    "pass": true,
+    "evidence": "before=444..508 after=444..508 hit=true"
+  },
+  {
+    "view": "320x568",
+    "req": "no horizontal overflow",
+    "pass": true,
+    "evidence": "doc=320 vw=320"
+  },
+  {
+    "view": "568x320",
+    "req": "modal top is on screen",
+    "pass": true,
+    "evidence": "top=36 vh=320"
+  },
+  {
+    "view": "568x320",
+    "req": "whole popup fits in the visible viewport",
+    "pass": true,
+    "evidence": "modal=36..284 vh=320 pickgrid=80 scroll=320/320"
+  },
+  {
+    "view": "568x320",
+    "req": "close button on screen and tappable after scrolling",
+    "pass": true,
+    "evidence": "before=200..264 after=200..264 hit=true"
+  },
+  {
+    "view": "568x320",
+    "req": "no horizontal overflow",
+    "pass": true,
+    "evidence": "doc=568 vw=568"
+  }
+]

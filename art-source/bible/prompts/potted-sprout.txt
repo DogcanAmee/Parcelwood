@@ -1,0 +1,10 @@
+Draw a NEW item, a completely different object from the reference image. Use the reference only as the style guide (outline weight, shading, light direction, camera angle, sticker look). The new item: A small terracotta flower pot with a thick rim, dark brown soil, and a young sprout with two round leaf-green leaves and one tiny curled new leaf.
+Strict style: chunky rounded simplified shapes, uniform thick dark brown outline (#3a2c1f) around the whole
+silhouette with thinner inner lines, flat cel shading with only 2-3 tones per color, one small hard highlight
+per surface, warm key light from the upper left with darker tones on the lower right, 3/4 front view slightly
+from above, the object turned slightly to the left.
+Palette limited to: leaf green #6a9a3a and a pale green #b9d98a, terracotta #c8693a plus outline #3a2c1f, brass #e8b33f, cream #fffaf0.
+Single centered object filling about 80% of the square canvas, small empty margin at the bottom, isolated on a
+flat solid pure white background with clean separation from the edges.
+No cast shadow, no ground, no glow, no halo, no base, no props, no text, no letters, no numbers, no realistic
+texture, no rust, no scratches, no noise, no painterly brush strokes.

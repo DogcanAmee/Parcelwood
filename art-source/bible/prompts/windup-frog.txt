@@ -1,0 +1,10 @@
+A chunky green wind-up toy frog crouched on its back legs, big round eyes on top of its head, a lighter cream-green belly, and a small brass wind-up key sticking out of its side.
+Strict style: chunky rounded simplified shapes, uniform thick dark brown outline (#3a2c1f) around the whole
+silhouette with thinner inner lines, flat cel shading with only 2-3 tones per color, one small hard highlight
+per surface, warm key light from the upper left with darker tones on the lower right, 3/4 front view slightly
+from above, the object turned slightly to the left.
+Palette limited to: teal #23a091, pale teal, cream, old red #c8402f plus outline #3a2c1f, brass #e8b33f, cream #fffaf0.
+Single centered object filling about 80% of the square canvas, small empty margin at the bottom, isolated on a
+flat solid pure white background with clean separation from the edges.
+No cast shadow, no ground, no glow, no halo, no base, no props, no text, no letters, no numbers, no realistic
+texture, no rust, no scratches, no noise, no painterly brush strokes.

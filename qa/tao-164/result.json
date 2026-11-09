@@ -1,0 +1,163 @@
+[
+  {
+    "id": "Q13-count",
+    "view": "320",
+    "req": "all 14 decor are drawn",
+    "pass": true,
+    "evidence": "decor=14 loaded=14"
+  },
+  {
+    "id": "Q13-facade",
+    "view": "320",
+    "req": "all decor loaded at 256px",
+    "pass": true,
+    "evidence": "256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256"
+  },
+  {
+    "id": "Q13-overlap",
+    "view": "320",
+    "req": "no two decor boxes overlap by more than 4 px",
+    "pass": true,
+    "evidence": "clean"
+  },
+  {
+    "id": "Q13-count",
+    "view": "390",
+    "req": "all 14 decor are drawn",
+    "pass": true,
+    "evidence": "decor=14 loaded=14"
+  },
+  {
+    "id": "Q13-facade",
+    "view": "390",
+    "req": "all decor loaded at 256px",
+    "pass": true,
+    "evidence": "256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256"
+  },
+  {
+    "id": "Q13-overlap",
+    "view": "390",
+    "req": "no two decor boxes overlap by more than 4 px",
+    "pass": true,
+    "evidence": "clean"
+  },
+  {
+    "id": "Q13-count",
+    "view": "1440",
+    "req": "all 14 decor are drawn",
+    "pass": true,
+    "evidence": "decor=14 loaded=14"
+  },
+  {
+    "id": "Q13-facade",
+    "view": "1440",
+    "req": "all decor loaded at 256px",
+    "pass": true,
+    "evidence": "256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256,256x256"
+  },
+  {
+    "id": "Q13-overlap",
+    "view": "1440",
+    "req": "no two decor boxes overlap by more than 4 px",
+    "pass": true,
+    "evidence": "clean"
+  },
+  {
+    "id": "Q10-event",
+    "view": "390",
+    "req": "event banner image shown",
+    "pass": true,
+    "evidence": "ui/banner-rain.webp"
+  },
+  {
+    "id": "Q10-week",
+    "view": "390",
+    "req": "Station Week banner shown",
+    "pass": true,
+    "evidence": "ui/banner-week.webp"
+  },
+  {
+    "id": "Q10-size",
+    "view": "390",
+    "req": "banner 750x250 and rendered <=120 px tall",
+    "pass": true,
+    "evidence": "{\"nat\":[750,250],\"box\":[324,120]}"
+  },
+  {
+    "id": "Q14-dark",
+    "view": "390",
+    "req": "dark-mode banner and station render",
+    "pass": true,
+    "evidence": "screenshots saved"
+  },
+  {
+    "id": "Q11-fallback",
+    "view": "390",
+    "req": "blocked banner falls back to the old icon row",
+    "pass": true,
+    "evidence": "banner=0 row=1"
+  },
+  {
+    "id": "Q12-guide",
+    "view": "390x844",
+    "req": "Dube points in the coach bubble",
+    "pass": true,
+    "evidence": "src=ui/guide-point.webp"
+  },
+  {
+    "id": "Q12-guide-size",
+    "view": "390x844",
+    "req": "guide picture 56 px (40 px on small/short)",
+    "pass": true,
+    "evidence": "{\"box\":[56,56],\"nat\":[256,256]}"
+  },
+  {
+    "id": "Q12-no-cover",
+    "view": "390x844",
+    "req": "coach bubble does not cover its target",
+    "pass": true,
+    "evidence": "{\"ok\":true,\"rect\":[8,435,290,98],\"target\":[45,332,92,92]}"
+  },
+  {
+    "id": "Q12-guide",
+    "view": "320x480",
+    "req": "Dube points in the coach bubble",
+    "pass": true,
+    "evidence": "src=ui/guide-point.webp"
+  },
+  {
+    "id": "Q12-guide-size",
+    "view": "320x480",
+    "req": "guide picture 56 px (40 px on small/short)",
+    "pass": true,
+    "evidence": "{\"box\":[40,40],\"nat\":[256,256]}"
+  },
+  {
+    "id": "Q12-no-cover",
+    "view": "320x480",
+    "req": "coach bubble does not cover its target",
+    "pass": true,
+    "evidence": "{\"ok\":true,\"rect\":[8,237,290,82],\"target\":[45,331,109,109]}"
+  },
+  {
+    "id": "Q12-guide",
+    "view": "568x320",
+    "req": "Dube points in the coach bubble",
+    "pass": true,
+    "evidence": "src=ui/guide-point.webp"
+  },
+  {
+    "id": "Q12-guide-size",
+    "view": "568x320",
+    "req": "guide picture 56 px (40 px on small/short)",
+    "pass": true,
+    "evidence": "{\"box\":[40,40],\"nat\":[256,256]}"
+  },
+  {
+    "id": "Q12-no-cover",
+    "view": "568x320",
+    "req": "coach bubble does not cover its target",
+    "pass": true,
+    "evidence": "{\"ok\":true,\"rect\":[8,200,290,82],\"target\":[49,294,84,84]}"
+  }
+]

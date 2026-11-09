@@ -1,0 +1,5 @@
+.ico { display: inline-block; height: 1.2em; width: auto; vertical-align: -0.25em; pointer-events: none; user-select: none; }
+.rh-heart.off .ico { filter: grayscale(1); opacity: 0.35; }
+/* Inline play badge used by the reward buttons. Without a size the SVG falls back to its intrinsic box and
+   makes the Shop ad row wider than a 320 px screen. */
+.play-ico { width: 1.15em; height: 1.15em; vertical-align: -0.2em; }

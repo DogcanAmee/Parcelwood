@@ -1,0 +1,62 @@
+[
+  {
+    "req": "street shows 7 neighbour portraits at devlv=7",
+    "pass": true,
+    "evidence": "residents/okafor-normal.webp, residents/theo-normal.webp, residents/lena-normal.webp, residents/dube-normal.webp, residents/twins-normal.webp, residents/rosa-normal.webp, residents/ines-worried.webp"
+  },
+  {
+    "req": "each portrait file is distinct (no shared smiley)",
+    "pass": true,
+    "evidence": "distinct=7"
+  },
+  {
+    "req": "all portraits load (naturalWidth>0)",
+    "pass": true,
+    "evidence": "true,true,true,true,true,true,true"
+  },
+  {
+    "req": "portraits are decorative for screen readers (alt=\"\", aria-hidden)",
+    "pass": true,
+    "evidence": "alt/aria ok"
+  },
+  {
+    "req": "portrait circle size stays ~60px in the house",
+    "pass": true,
+    "evidence": "41,41,41,41,41,41,41"
+  },
+  {
+    "req": "story modal shows the tapped neighbour normal portrait",
+    "pass": true,
+    "evidence": "residents/okafor-normal.webp"
+  },
+  {
+    "req": "gift modal shows the happy portrait",
+    "pass": true,
+    "evidence": "residents/okafor-happy.webp"
+  },
+  {
+    "req": "after the day tick a neighbour shows the worried portrait on the street",
+    "pass": true,
+    "evidence": "residents/okafor-normal.webp, residents/theo-normal.webp, residents/lena-normal.webp, residents/dube-normal.webp, residents/twins-worried.webp, residents/rosa-normal.webp, residents/ines-worried.webp"
+  },
+  {
+    "req": "urgent parcel sheet shows the worried portrait",
+    "pass": true,
+    "evidence": "residents/twins-worried.webp (送给洗衣店的双胞胎)"
+  },
+  {
+    "req": "request modal shows the requester normal portrait",
+    "pass": true,
+    "evidence": "residents/ines-normal.webp"
+  },
+  {
+    "req": "save keeps coins across reload",
+    "pass": true,
+    "evidence": "320 -> 320"
+  },
+  {
+    "req": "all 21 portraits together stay under 0.5 MB",
+    "pass": true,
+    "evidence": "283 kB for 21 files"
+  }
+]

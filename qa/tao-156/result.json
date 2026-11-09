@@ -1,0 +1,164 @@
+[
+  {
+    "view": "320x568",
+    "req": "Lv8 level-up popup names the Lost Letter Office",
+    "pass": true,
+    "evidence": "Parcelwood is now Lv 8! Lost letter night New series: Lost Letter Office Let's go"
+  },
+  {
+    "view": "320x568",
+    "req": "six series tabs on the album",
+    "pass": true,
+    "evidence": "snacks@45-127, toys@133-215, souvenirs@45-127, garden@133-215, market@45-127, lost-letter-office@133-214"
+  },
+  {
+    "view": "320x568",
+    "req": "album has no horizontal overflow",
+    "pass": true,
+    "evidence": "doc=320/320 marks=258/258 page=245/245"
+  },
+  {
+    "view": "320x568",
+    "req": "album tabs stay inside the book",
+    "pass": true,
+    "evidence": "book=16..304 tabs=45..127, 133..215, 45..127, 133..215, 45..127, 133..214"
+  },
+  {
+    "view": "320x568",
+    "req": "new series page shows 8 cards",
+    "pass": true,
+    "evidence": "cards=8"
+  },
+  {
+    "view": "320x568",
+    "req": "street shows 6 shops, no horizontal overflow",
+    "pass": true,
+    "evidence": "shops=6 rows=2 doc=320/320 street=288/288"
+  },
+  {
+    "view": "320x568",
+    "req": "6 shops fit inside the street panel",
+    "pass": true,
+    "evidence": "street=16..304 shops=16..105, 115..205, 215..304, 16..105, 115..205, 215..304"
+  },
+  {
+    "view": "320x568",
+    "req": "guess crates hold 6 series without horizontal overflow",
+    "pass": true,
+    "evidence": "crates=6 doc=320/320 crates=221/221"
+  },
+  {
+    "view": "320x568",
+    "req": "Open button reachable with at most one screen of scroll",
+    "pass": true,
+    "evidence": "open=655..742 vh=568 docH=2900"
+  },
+  {
+    "view": "390x844",
+    "req": "Lv8 level-up popup names the Lost Letter Office",
+    "pass": true,
+    "evidence": "Parcelwood is now Lv 8! Lost letter night New series: Lost Letter Office Let's go"
+  },
+  {
+    "view": "390x844",
+    "req": "six series tabs on the album",
+    "pass": true,
+    "evidence": "snacks@45-127, toys@133-215, souvenirs@221-303, garden@45-127, market@133-215, lost-letter-office@221-302"
+  },
+  {
+    "view": "390x844",
+    "req": "album has no horizontal overflow",
+    "pass": true,
+    "evidence": "doc=390/390 marks=328/328 page=315/315"
+  },
+  {
+    "view": "390x844",
+    "req": "album tabs stay inside the book",
+    "pass": true,
+    "evidence": "book=16..374 tabs=45..127, 133..215, 221..303, 45..127, 133..215, 221..302"
+  },
+  {
+    "view": "390x844",
+    "req": "new series page shows 8 cards",
+    "pass": true,
+    "evidence": "cards=8"
+  },
+  {
+    "view": "390x844",
+    "req": "street shows 6 shops, no horizontal overflow",
+    "pass": true,
+    "evidence": "shops=6 rows=2 doc=390/390 street=358/358"
+  },
+  {
+    "view": "390x844",
+    "req": "6 shops fit inside the street panel",
+    "pass": true,
+    "evidence": "street=16..374 shops=16..129, 139..251, 261..374, 16..129, 139..251, 261..374"
+  },
+  {
+    "view": "390x844",
+    "req": "guess crates hold 6 series without horizontal overflow",
+    "pass": true,
+    "evidence": "crates=6 doc=390/390 crates=291/291"
+  },
+  {
+    "view": "390x844",
+    "req": "Open button reachable with at most one screen of scroll",
+    "pass": true,
+    "evidence": "open=702..788 vh=844 docH=2504"
+  },
+  {
+    "view": "1440x900",
+    "req": "Lv8 level-up popup names the Lost Letter Office",
+    "pass": true,
+    "evidence": "Parcelwood is now Lv 8! Lost letter night New series: Lost Letter Office Let's go"
+  },
+  {
+    "view": "1440x900",
+    "req": "six series tabs on the album",
+    "pass": true,
+    "evidence": "snacks@415-497, toys@503-585, souvenirs@591-673, garden@679-761, market@767-849, lost-letter-office@855-936"
+  },
+  {
+    "view": "1440x900",
+    "req": "album has no horizontal overflow",
+    "pass": true,
+    "evidence": "doc=1440/1440 marks=730/730 page=717/717"
+  },
+  {
+    "view": "1440x900",
+    "req": "album tabs stay inside the book",
+    "pass": true,
+    "evidence": "book=386..1146 tabs=415..497, 503..585, 591..673, 679..761, 767..849, 855..936"
+  },
+  {
+    "view": "1440x900",
+    "req": "new series page shows 8 cards",
+    "pass": true,
+    "evidence": "cards=8"
+  },
+  {
+    "view": "1440x900",
+    "req": "street shows 6 shops, no horizontal overflow",
+    "pass": true,
+    "evidence": "shops=6 rows=2 doc=1440/1440 street=474/474"
+  },
+  {
+    "view": "1440x900",
+    "req": "6 shops fit inside the street panel",
+    "pass": true,
+    "evidence": "street=892..1366 shops=892..1043, 1053..1205, 1215..1366, 892..1043, 1053..1205, 1215..1366"
+  },
+  {
+    "view": "1440x900",
+    "req": "guess crates hold 6 series without horizontal overflow",
+    "pass": true,
+    "evidence": "crates=6 doc=1440/1440 crates=460/460"
+  },
+  {
+    "view": "1440x900",
+    "req": "Open button reachable with at most one screen of scroll",
+    "pass": true,
+    "evidence": "open=567..654 vh=900 docH=1127"
+  }
+]

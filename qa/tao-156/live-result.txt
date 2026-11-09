@@ -1,0 +1,30 @@
+QA base: https://rushing-ruby-h07yevk.tmp.now/
+PASS | 320x568 | Lv8 level-up popup names the Lost Letter Office | Parcelwood is now Lv 8! Lost letter night New series: Lost Letter Office Let's go
+PASS | 320x568 | six series tabs on the album | snacks@45-127, toys@133-215, souvenirs@45-127, garden@133-215, market@45-127, lost-letter-office@133-214
+PASS | 320x568 | album has no horizontal overflow | doc=320/320 marks=258/258 page=245/245
+PASS | 320x568 | album tabs stay inside the book | book=16..304 tabs=45..127, 133..215, 45..127, 133..215, 45..127, 133..214
+PASS | 320x568 | new series page shows 8 cards | cards=8
+PASS | 320x568 | street shows 6 shops, no horizontal overflow | shops=6 rows=2 doc=320/320 street=288/288
+PASS | 320x568 | 6 shops fit inside the street panel | street=16..304 shops=16..105, 115..205, 215..304, 16..105, 115..205, 215..304
+PASS | 320x568 | guess crates hold 6 series without horizontal overflow | crates=6 doc=320/320 crates=221/221
+PASS | 320x568 | Open button reachable with at most one screen of scroll | open=655..742 vh=568 docH=2900
+PASS | 390x844 | Lv8 level-up popup names the Lost Letter Office | Parcelwood is now Lv 8! Lost letter night New series: Lost Letter Office Let's go
+PASS | 390x844 | six series tabs on the album | snacks@45-127, toys@133-215, souvenirs@221-303, garden@45-127, market@133-215, lost-letter-office@221-302
+PASS | 390x844 | album has no horizontal overflow | doc=390/390 marks=328/328 page=315/315
+PASS | 390x844 | album tabs stay inside the book | book=16..374 tabs=45..127, 133..215, 221..303, 45..127, 133..215, 221..302
+PASS | 390x844 | new series page shows 8 cards | cards=8
+PASS | 390x844 | street shows 6 shops, no horizontal overflow | shops=6 rows=2 doc=390/390 street=358/358
+PASS | 390x844 | 6 shops fit inside the street panel | street=16..374 shops=16..129, 139..251, 261..374, 16..129, 139..251, 261..374
+PASS | 390x844 | guess crates hold 6 series without horizontal overflow | crates=6 doc=390/390 crates=291/291
+PASS | 390x844 | Open button reachable with at most one screen of scroll | open=702..788 vh=844 docH=2504
+PASS | 1440x900 | Lv8 level-up popup names the Lost Letter Office | Parcelwood is now Lv 8! Lost letter night New series: Lost Letter Office Let's go
+PASS | 1440x900 | six series tabs on the album | snacks@415-497, toys@503-585, souvenirs@591-673, garden@679-761, market@767-849, lost-letter-office@855-936
+PASS | 1440x900 | album has no horizontal overflow | doc=1440/1440 marks=730/730 page=717/717
+PASS | 1440x900 | album tabs stay inside the book | book=386..1146 tabs=415..497, 503..585, 591..673, 679..761, 767..849, 855..936
+PASS | 1440x900 | new series page shows 8 cards | cards=8
+PASS | 1440x900 | street shows 6 shops, no horizontal overflow | shops=6 rows=2 doc=1440/1440 street=474/474
+PASS | 1440x900 | 6 shops fit inside the street panel | street=892..1366 shops=892..1043, 1053..1205, 1215..1366, 892..1043, 1053..1205, 1215..1366
+PASS | 1440x900 | guess crates hold 6 series without horizontal overflow | crates=6 doc=1440/1440 crates=460/460
+PASS | 1440x900 | Open button reachable with at most one screen of scroll | open=567..654 vh=900 docH=1127
+
+ALL 27 CHECKS PASS

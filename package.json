@@ -1,0 +1,35 @@
+{
+  "name": "parcelwood",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc",
+    "test": "vitest run",
+    "sim": "SIM_RUNS=10000 vitest run tests/runSim.test.ts tests/townSim.test.ts",
+    "dev:crazygames": "vite --config vite.crazygames.config.ts",
+    "build:crazygames": "tsc && vite build --config vite.crazygames.config.ts",
+    "build:crazygames:preview": "tsc && VITE_CG_MOCK_ADS=1 vite build --config vite.crazygames.config.ts",
+    "dev:discord": "vite --config discord/vite.config.ts",
+    "typecheck:discord": "tsc -p discord/tsconfig.json",
+    "build:discord": "tsc -p discord/tsconfig.json && vite build --config discord/vite.config.ts",
+    "check:release": "node scripts/check-release.mjs"
+  },
+  "devDependencies": {
+    "@fontsource/courier-prime": "^5.3.0",
+    "@fontsource/figtree": "^5.3.0",
+    "@fontsource/lilita-one": "^5.3.0",
+    "jsdom": "^26.1.0",
+    "playwright-core": "^1.63.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.5",
+    "vitest": "^3.2.7"
+  },
+  "dependencies": {
+    "@discord/embedded-app-sdk": "^2.5.0",
+    "@supabase/supabase-js": "^2.118.0"
+  }
+}

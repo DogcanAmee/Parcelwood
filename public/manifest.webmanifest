@@ -1,0 +1,16 @@
+{
+  "name": "Parcelwood",
+  "short_name": "Parcelwood",
+  "description": "Run the town's little post office: guess, shake and open parcels, and fill your collection.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#e6ebee",
+  "theme_color": "#2456c4",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
